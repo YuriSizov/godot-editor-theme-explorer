@@ -34,3 +34,8 @@ Styleboxes are previewed by being applied to a small `Panel`. A lot of them do n
 ![Icons tab](images/preview-6.png)
 
 Constants are only displayed by their name in the list. Values can be viewed in the right-hand panel. It should be noted, that constants are always returned as `int`s, though sometimes they are used as `bool`s. Preview demonstrates both interpretations of the value.
+
+## Installation
+Clone this repository or download it as ZIP. You only need to put `addons/explore-editor-theme` folder inside your project folder. ZIP already has only necessary files.
+
+Also available from AssetLib within the Editor: https://godotengine.org/asset-library/asset/557.
