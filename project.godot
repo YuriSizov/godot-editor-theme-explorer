@@ -16,6 +16,8 @@ _global_script_class_icons={
 [application]
 
 config/name="Plugin: Editor Theme Explorer"
+run/main_scene="res://addons/explore-editor-theme/ExplorerDialog.tscn"
+config/icon="res://addons/explore-editor-theme/plugin-icon.png"
 
 [editor_plugins]
 
