@@ -3,7 +3,7 @@ extends HBoxContainer
 
 # Node references
 onready var label : Label = $Label
-onready var input : LineEdit = $Input
+onready var input : OptionButton = $Input
 
 signal item_selected(index)
 

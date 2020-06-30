@@ -9,7 +9,7 @@ onready var constant_list : ItemList = $Layout/ConstantView/ConstantList
 onready var empty_panel : Control = $Layout/ConstantView/EmptyPanel
 onready var constant_panel : Control = $Layout/ConstantView/ConstantPanel
 onready var constant_title : Label = $Layout/ConstantView/ConstantPanel/ConstantName
-onready var constant_value : TextureRect = $Layout/ConstantView/ConstantPanel/ConstantValue
+onready var constant_value : Label = $Layout/ConstantView/ConstantPanel/ConstantValue
 onready var constant_code : Control = $Layout/ConstantView/ConstantPanel/ConstantCode
 
 # Private properties
