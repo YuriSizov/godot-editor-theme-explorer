@@ -22,6 +22,7 @@ __meta__ = {
 margin_top = 24.0
 margin_right = 73.0
 margin_bottom = 38.0
+autowrap = true
 
 [node name="SaveDialog" type="FileDialog" parent="."]
 anchor_left = 0.5
