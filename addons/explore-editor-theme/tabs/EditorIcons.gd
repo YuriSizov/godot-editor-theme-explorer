@@ -78,7 +78,6 @@ func _on_icon_item_selected(item_index : int) -> void:
 	icon_title.text = icon_name
 	icon_code.code_text = "get_icon(\"" + icon_name + "\", \"" + type_name + "\")"
 	
-	icon_saver.clear_message()
 	icon_saver.icon_name = icon_name
 	icon_saver.type_name = type_name
 	

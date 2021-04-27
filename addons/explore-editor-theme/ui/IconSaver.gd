@@ -13,11 +13,12 @@ onready var _message: Label = $Message
 
 
 func _ready() -> void:
+	connect("visibility_changed", self, "_on_visibility_changed")
 	_save_button.connect("pressed", self, "_on_save_button_pressed")
 	_save_dialog.connect("file_selected", self, "_on_file_selected")
 
 
-func clear_message() -> void:
+func _on_visibility_changed() -> void:
 	_message.text = ""
 
 
