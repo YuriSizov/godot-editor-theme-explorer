@@ -4,8 +4,8 @@ extends VBoxContainer
 
 signal filesystem_changed()
 
-export var icon_name := ''
-export var type_name := ''
+export var icon_name: String = ""
+export var type_name: String = ""
 
 onready var _save_button: Button = $SaveButton
 onready var _save_dialog: FileDialog = $SaveDialog
@@ -18,7 +18,7 @@ func _ready() -> void:
 
 
 func clear_message() -> void:
-	_message.text = ''
+	_message.text = ""
 
 
 func _on_save_button_pressed() -> void:
