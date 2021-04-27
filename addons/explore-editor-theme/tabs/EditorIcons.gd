@@ -29,6 +29,7 @@ func _ready() -> void:
 	filter_tool.connect("text_changed", self, "_on_filter_text_changed")
 	type_tool.connect("item_selected", self, "_on_type_item_selected")
 	icon_list.connect("item_selected", self, "_on_icon_item_selected")
+	icon_saver.connect("filesystem_changed", self, "emit_signal", ["filesystem_changed"])
 
 func _update_theme() -> void:
 	if (!is_inside_tree() || !Engine.editor_hint):
@@ -84,7 +85,3 @@ func _on_icon_item_selected(item_index : int) -> void:
 	if (!icon_panel.visible):
 		empty_panel.hide()
 		icon_panel.show()
-
-
-func _notify_filesystem_change() -> void:
-	emit_signal("filesystem_changed")

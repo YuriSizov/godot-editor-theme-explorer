@@ -131,5 +131,3 @@ margin_left = 736.0
 margin_right = 1016.0
 margin_bottom = 536.0
 rect_min_size = Vector2( 280, 0 )
-
-[connection signal="filesystem_changed" from="Layout/IconView/IconPanel/IconSaver" to="." method="_notify_filesystem_change"]

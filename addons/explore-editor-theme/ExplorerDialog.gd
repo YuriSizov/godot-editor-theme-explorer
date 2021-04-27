@@ -12,6 +12,9 @@ onready var constant_explorer : Control = $VBoxContainer/TabContainer/Constants
 
 var editor_theme : Theme setget set_editor_theme
 
+func _ready() -> void:
+	icon_explorer.connect("filesystem_changed", self, "emit_signal", ["filesystem_changed"])
+
 func set_editor_theme(value : Theme) -> void:
 	editor_theme = value
 	
@@ -24,7 +27,3 @@ func set_editor_theme(value : Theme) -> void:
 		font_explorer.add_font_set(editor_theme.get_font_list(type), type)
 		styleboxes_explorer.add_stylebox_set(editor_theme.get_stylebox_list(type), type)
 		constant_explorer.add_constant_set(editor_theme.get_constant_list(type), type)
-
-
-func _notify_filesystem_change() -> void:
-	emit_signal("filesystem_changed")

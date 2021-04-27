@@ -7,19 +7,25 @@ signal filesystem_changed()
 export var icon_name := ''
 export var type_name := ''
 
+onready var _save_button: Button = $SaveButton
 onready var _save_dialog: FileDialog = $SaveDialog
 onready var _message: Label = $Message
+
+
+func _ready() -> void:
+	_save_button.connect("pressed", self, "_on_save_button_pressed")
+	_save_dialog.connect("file_selected", self, "_on_file_selected")
 
 
 func clear_message() -> void:
 	_message.text = ''
 
 
-func show_save_dialog() -> void:
+func _on_save_button_pressed() -> void:
 	_save_dialog.popup_centered()
 
 
-func save_file(path: String) -> void:
+func _on_file_selected(path: String) -> void:
 	
 	if not has_icon(icon_name, type_name):
 		_message.text = "Can't load icon. Is a valid icon selected?"

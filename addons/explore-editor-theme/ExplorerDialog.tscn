@@ -45,5 +45,3 @@ margin_bottom = -4.0
 
 [node name="Constants" parent="VBoxContainer/TabContainer" instance=ExtResource( 4 )]
 visible = false
-
-[connection signal="filesystem_changed" from="VBoxContainer/TabContainer/Icons" to="." method="_notify_filesystem_change"]
