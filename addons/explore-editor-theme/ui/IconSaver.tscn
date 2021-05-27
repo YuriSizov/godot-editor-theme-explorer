@@ -3,15 +3,15 @@
 [ext_resource path="res://addons/explore-editor-theme/ui/IconSaver.gd" type="Script" id=1]
 
 [node name="IconSaver" type="VBoxContainer"]
-margin_right = 40.0
-margin_bottom = 40.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="SaveButton" type="Button" parent="."]
-margin_right = 73.0
+margin_right = 1024.0
 margin_bottom = 20.0
 text = "Save Icon"
 __meta__ = {
@@ -19,8 +19,9 @@ __meta__ = {
 }
 
 [node name="Message" type="Label" parent="."]
+visible = false
 margin_top = 24.0
-margin_right = 73.0
+margin_right = 1024.0
 margin_bottom = 38.0
 autowrap = true
 

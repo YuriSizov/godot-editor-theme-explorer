@@ -125,4 +125,5 @@ margin_bottom = 309.0
 [node name="EmptyPanel" type="Control" parent="Layout/IconView"]
 margin_left = 754.0
 margin_right = 1024.0
+margin_bottom = 572.0
 rect_min_size = Vector2( 270, 0 )
