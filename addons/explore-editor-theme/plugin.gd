@@ -26,23 +26,3 @@ func _show_window(param : Object) -> void:
 
 func _rescan_filesystem() -> void:
 	get_editor_interface().get_resource_filesystem().scan()
-
-### Functions of Theme:
-#
-#	Color get_color(name: String, type: String) const
-#	PoolStringArray get_color_list(type: String) const
-#
-#	int get_constant(name: String, type: String) const
-#	PoolStringArray get_constant_list(type: String) const
-#
-#	Font get_font(name: String, type: String) const
-#	PoolStringArray get_font_list(type: String) const
-#
-#	Texture get_icon(name: String, type: String) const
-#	PoolStringArray get_icon_list(type: String) const
-#
-#	StyleBox get_stylebox(name: String, type: String) const
-#	PoolStringArray get_stylebox_list(type: String) const
-#
-#	PoolStringArray get_stylebox_types() const
-#	PoolStringArray get_type_list(type: String) const

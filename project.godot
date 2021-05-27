@@ -10,7 +10,6 @@ config_version=4
 
 _global_script_classes=[  ]
 _global_script_class_icons={
-
 }
 
 [application]
@@ -21,4 +20,4 @@ config/icon="res://addons/explore-editor-theme/plugin-icon.png"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "explore-editor-theme" )
+enabled=PoolStringArray( "res://addons/explore-editor-theme/plugin.cfg" )
