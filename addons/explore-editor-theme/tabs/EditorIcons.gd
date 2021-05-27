@@ -1,6 +1,8 @@
 tool
 extends MarginContainer
 
+signal filesystem_changed()
+
 # Node references
 onready var filter_tool : Control = $Layout/Toolbar/Filter
 onready var type_tool : Control = $Layout/Toolbar/Type
@@ -12,6 +14,7 @@ onready var icon_preview : TextureRect = $Layout/IconView/IconPanel/IconPreview
 onready var icon_preview_info : Label = $Layout/IconView/IconPanel/IconPreview/IconPreviewInfo
 onready var icon_title : Label = $Layout/IconView/IconPanel/IconName
 onready var icon_code : Control = $Layout/IconView/IconPanel/IconCode
+onready var icon_saver : VBoxContainer = $Layout/IconView/IconPanel/IconSaver
 
 # Private properties
 var _icon_map : Dictionary = {}
@@ -26,6 +29,7 @@ func _ready() -> void:
 	filter_tool.connect("text_changed", self, "_on_filter_text_changed")
 	type_tool.connect("item_selected", self, "_on_type_item_selected")
 	icon_list.connect("item_selected", self, "_on_icon_item_selected")
+	icon_saver.connect("filesystem_changed", self, "emit_signal", ["filesystem_changed"])
 
 func _update_theme() -> void:
 	if (!is_inside_tree() || !Engine.editor_hint):
@@ -73,6 +77,9 @@ func _on_icon_item_selected(item_index : int) -> void:
 	icon_preview.texture = icon_texture
 	icon_title.text = icon_name
 	icon_code.code_text = "get_icon(\"" + icon_name + "\", \"" + type_name + "\")"
+	
+	icon_saver.icon_name = icon_name
+	icon_saver.type_name = type_name
 	
 	if (!icon_panel.visible):
 		empty_panel.hide()

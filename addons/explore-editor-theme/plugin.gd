@@ -13,6 +13,7 @@ func _enter_tree():
 	
 	var godot_theme = get_editor_interface().get_base_control().theme
 	dialog_instance.editor_theme = godot_theme
+	dialog_instance.connect("filesystem_changed", self, "_rescan_filesystem")
 	
 	add_tool_menu_item(get_plugin_name(), self, "_show_window")
 
@@ -22,6 +23,9 @@ func _exit_tree():
 
 func _show_window(param : Object) -> void:
 	dialog_instance.popup_centered()
+
+func _rescan_filesystem() -> void:
+	get_editor_interface().get_resource_filesystem().scan()
 
 ### Functions of Theme:
 #

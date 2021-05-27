@@ -1,6 +1,8 @@
 tool
 extends WindowDialog
 
+signal filesystem_changed()
+
 # Node references
 onready var icon_explorer : Control = $VBoxContainer/TabContainer/Icons
 onready var color_explorer : Control = $VBoxContainer/TabContainer/Colors
@@ -9,6 +11,9 @@ onready var styleboxes_explorer : Control = $VBoxContainer/TabContainer/Stylebox
 onready var constant_explorer : Control = $VBoxContainer/TabContainer/Constants
 
 var editor_theme : Theme setget set_editor_theme
+
+func _ready() -> void:
+	icon_explorer.connect("filesystem_changed", self, "emit_signal", ["filesystem_changed"])
 
 func set_editor_theme(value : Theme) -> void:
 	editor_theme = value
