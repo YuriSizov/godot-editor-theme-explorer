@@ -1,6 +1,13 @@
 tool
 extends MarginContainer
 
+# Public properties
+export var preview_background_texture : Texture
+
+# Private properties
+var _stylebox_map : Dictionary = {}
+var _default_type_name : String = "EditorStyles"
+
 # Node references
 onready var filter_tool : Control = $Layout/Toolbar/Filter
 onready var type_tool : Control = $Layout/Toolbar/Type
@@ -9,15 +16,16 @@ onready var stylebox_list : Control = $Layout/StyleboxView/ScrollContainer/Style
 onready var empty_panel : Control = $Layout/StyleboxView/EmptyPanel
 onready var stylebox_panel : Control = $Layout/StyleboxView/StyleboxPanel
 onready var stylebox_preview : Panel = $Layout/StyleboxView/StyleboxPanel/StyleboxPreview/StyleboxPreviewPanel
+onready var preview_background : TextureRect = $Layout/StyleboxView/StyleboxPanel/StyleboxPreview/PreviewBackground
 onready var stylebox_title : Label = $Layout/StyleboxView/StyleboxPanel/StyleboxName
 onready var stylebox_code : Control = $Layout/StyleboxView/StyleboxPanel/StyleboxCode
 
-# Private properties
-var _stylebox_map : Dictionary = {}
-var _default_type_name : String = "EditorStyles"
+# Scene references
+var stylebox_item_scene = preload("res://addons/explore-editor-theme/lists/StyleboxListItem.tscn")
 
 func _ready() -> void:
 	_update_theme()
+	_update_preview_background()
 	
 	_stylebox_map[_default_type_name] = []
 	type_tool.add_text_item(_default_type_name)
@@ -31,6 +39,13 @@ func _update_theme() -> void:
 	
 	stylebox_preview.add_color_override("font_color", get_color("accent_color", "Editor"))
 	stylebox_title.add_font_override("font", get_font("title", "EditorFonts"))
+
+func _update_preview_background() -> void:
+	var bg_image = preview_background_texture.get_data()
+	bg_image.expand_x2_hq2x()
+	var bg_texture = ImageTexture.new()
+	bg_texture.create_from_image(bg_image)
+	preview_background.texture = bg_texture
 
 func add_stylebox_set(stylebox_names : PoolStringArray, type_name : String) -> void:
 	if (stylebox_names.size() == 0 || type_name.empty()):
@@ -58,7 +73,6 @@ func _refresh_stylebox_list() -> void:
 	
 	var prefix = filter_tool.filter_text
 	var type_name = type_tool.get_selected_text()
-	var stylebox_item_scene = preload("res://addons/explore-editor-theme/lists/StyleboxListItem.tscn")
 	var item_index = 0
 	var horizontal_container = HBoxContainer.new()
 	for stylebox in _stylebox_map[type_name]:
@@ -70,8 +84,6 @@ func _refresh_stylebox_list() -> void:
 		stylebox_item.type_name = type_name
 		stylebox_item.size_flags_horizontal = SIZE_EXPAND_FILL
 		horizontal_container.add_child(stylebox_item)
-		if (horizontal_container.rect_min_size.y < stylebox_item.rect_min_size.y):
-			horizontal_container.rect_min_size.y = stylebox_item.rect_min_size.y
 		
 		stylebox_item.connect("item_selected", self, "_on_stylebox_item_selected", [ stylebox_item ])
 		item_index += 1
@@ -82,7 +94,7 @@ func _refresh_stylebox_list() -> void:
 	if (horizontal_container.get_child_count() > 0):
 		stylebox_list.add_child(horizontal_container)
 
-# Events
+# Handlers
 func _on_filter_text_changed(value : String) -> void:
 	_refresh_stylebox_list()
 

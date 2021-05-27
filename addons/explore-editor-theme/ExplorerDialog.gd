@@ -3,17 +3,28 @@ extends WindowDialog
 
 signal filesystem_changed()
 
-# Node references
-onready var icon_explorer : Control = $VBoxContainer/TabContainer/Icons
-onready var color_explorer : Control = $VBoxContainer/TabContainer/Colors
-onready var font_explorer : Control = $VBoxContainer/TabContainer/Fonts
-onready var styleboxes_explorer : Control = $VBoxContainer/TabContainer/Styleboxes
-onready var constant_explorer : Control = $VBoxContainer/TabContainer/Constants
-
+# Public properties
 var editor_theme : Theme setget set_editor_theme
 
+# Node references
+onready var background_panel : ColorRect = $Panel
+
+onready var icon_explorer : Control = $Layout/TabContainer/Icons
+onready var color_explorer : Control = $Layout/TabContainer/Colors
+onready var font_explorer : Control = $Layout/TabContainer/Fonts
+onready var styleboxes_explorer : Control = $Layout/TabContainer/Styleboxes
+onready var constant_explorer : Control = $Layout/TabContainer/Constants
+
 func _ready() -> void:
+	_update_theme()
+	
 	icon_explorer.connect("filesystem_changed", self, "emit_signal", ["filesystem_changed"])
+
+func _update_theme() -> void:
+	if (!is_inside_tree() || !Engine.editor_hint):
+		return
+	
+	background_panel.color = get_color("dark_color_2", "Editor")
 
 func set_editor_theme(value : Theme) -> void:
 	editor_theme = value

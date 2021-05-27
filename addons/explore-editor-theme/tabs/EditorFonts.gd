@@ -1,6 +1,10 @@
 tool
 extends MarginContainer
 
+# Private properties
+var _font_map : Dictionary = {}
+var _default_type_name : String = "EditorFonts"
+
 # Node references
 onready var filter_tool : Control = $Layout/Toolbar/Filter
 onready var type_tool : Control = $Layout/Toolbar/Type
@@ -13,9 +17,8 @@ onready var font_preview : Label = $Layout/FontView/FontPanel/FontPreview
 onready var font_title : Label = $Layout/FontView/FontPanel/FontName
 onready var font_code : Control = $Layout/FontView/FontPanel/FontCode
 
-# Private properties
-var _font_map : Dictionary = {}
-var _default_type_name : String = "EditorFonts"
+# Scene references
+var font_item_scene = preload("res://addons/explore-editor-theme/lists/FontListItem.tscn")
 
 func _ready() -> void:
 	_update_theme()
@@ -57,7 +60,6 @@ func _refresh_font_list() -> void:
 	var prefix = filter_tool.filter_text
 	var type_name = type_tool.get_selected_text()
 	var sample = sample_tool.sample_text
-	var font_item_scene = preload("res://addons/explore-editor-theme/lists/FontListItem.tscn")
 	for font in _font_map[type_name]:
 		if (!prefix.empty() && font.findn(prefix) < 0):
 			continue

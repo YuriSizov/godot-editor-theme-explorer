@@ -1,6 +1,13 @@
 tool
 extends MarginContainer
 
+# Public properties
+export var color_icon_background : Texture
+
+# Private properties
+var _color_map : Dictionary = {}
+var _default_type_name : String = "Editor"
+
 # Node references
 onready var filter_tool : Control = $Layout/Toolbar/Filter
 onready var type_tool : Control = $Layout/Toolbar/Type
@@ -12,13 +19,6 @@ onready var color_preview : TextureRect = $Layout/ColorView/ColorPanel/ColorPrev
 onready var color_preview_info : Label = $Layout/ColorView/ColorPanel/ColorPreview/ColorPreviewInfo
 onready var color_title : Label = $Layout/ColorView/ColorPanel/ColorName
 onready var color_code : Control = $Layout/ColorView/ColorPanel/ColorCode
-
-# Public properties
-export var color_icon_background : Texture
-
-# Private properties
-var _color_map : Dictionary = {}
-var _default_type_name : String = "Editor"
 
 func _ready() -> void:
 	_update_theme()
