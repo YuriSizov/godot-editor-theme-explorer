@@ -12,6 +12,7 @@ signal item_selected()
 
 func _ready() -> void:
 	stylebox_title.text = stylebox_name
+	hint_tooltip = stylebox_name
 	_update_preview()
 
 func _gui_input(event : InputEvent) -> void:
@@ -24,6 +25,7 @@ func set_stylebox_name(value : String) -> void:
 	
 	if (is_inside_tree()):
 		stylebox_title.text = stylebox_name
+		hint_tooltip = stylebox_name
 
 func set_type_name(value : String) -> void:
 	type_name = value

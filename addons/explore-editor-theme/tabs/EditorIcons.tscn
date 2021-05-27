@@ -28,42 +28,38 @@ ascent = 11.0
 [node name="Icons" type="MarginContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 32.0
-margin_right = -4.0
-margin_bottom = -4.0
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Layout" type="VBoxContainer" parent="."]
-margin_right = 1016.0
-margin_bottom = 564.0
+margin_right = 1024.0
+margin_bottom = 600.0
 
 [node name="Toolbar" type="HBoxContainer" parent="Layout"]
-margin_right = 1016.0
+margin_right = 1024.0
 margin_bottom = 24.0
 
 [node name="Filter" parent="Layout/Toolbar" instance=ExtResource( 3 )]
-margin_right = 732.0
+margin_right = 740.0
 
 [node name="Type" parent="Layout/Toolbar" instance=ExtResource( 4 )]
-margin_left = 736.0
-margin_right = 1016.0
+margin_left = 744.0
+margin_right = 1024.0
 
 [node name="IconView" type="HBoxContainer" parent="Layout"]
 margin_top = 28.0
-margin_right = 1016.0
-margin_bottom = 564.0
+margin_right = 1024.0
+margin_bottom = 600.0
 size_flags_vertical = 3
 
 [node name="IconList" type="ItemList" parent="Layout/IconView"]
-margin_right = 732.0
-margin_bottom = 536.0
+margin_right = 750.0
+margin_bottom = 572.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-max_columns = 4
+max_columns = 0
 same_column_width = true
 fixed_column_width = 220
 fixed_icon_size = Vector2( 16, 16 )
@@ -71,9 +67,9 @@ fixed_icon_size = Vector2( 16, 16 )
 [node name="IconPanel" type="VBoxContainer" parent="Layout/IconView"]
 visible = false
 margin_left = 452.0
-margin_right = 732.0
-margin_bottom = 519.0
-rect_min_size = Vector2( 280, 0 )
+margin_right = 722.0
+margin_bottom = 272.0
+rect_min_size = Vector2( 270, 0 )
 size_flags_vertical = 3
 
 [node name="Padding0" type="Control" parent="Layout/IconView/IconPanel"]
@@ -127,7 +123,6 @@ margin_top = 270.0
 margin_bottom = 309.0
 
 [node name="EmptyPanel" type="Control" parent="Layout/IconView"]
-margin_left = 736.0
-margin_right = 1016.0
-margin_bottom = 536.0
-rect_min_size = Vector2( 280, 0 )
+margin_left = 754.0
+margin_right = 1024.0
+rect_min_size = Vector2( 270, 0 )
