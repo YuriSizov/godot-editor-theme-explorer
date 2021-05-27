@@ -36,6 +36,8 @@ rect_min_size = Vector2( 0, 120 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 stretch_mode = 2
+texture_filter = 1
+texture_repeat = 2
 
 [node name="PreviewPanel" type="Panel" parent="Layout/PreviewContainer"]
 margin_left = 464.0

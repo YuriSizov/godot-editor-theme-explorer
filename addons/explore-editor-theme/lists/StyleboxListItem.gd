@@ -1,17 +1,20 @@
-tool
+@tool
 extends Panel
 
 # Public properties
-export var preview_background_texture : Texture
+@export var preview_background_texture : Texture
 
-var stylebox_name : String = "" setget set_stylebox_name
-var type_name : String = "" setget set_type_name
-var selected : bool = false setget set_selected
+var stylebox_name : String = "":
+	set = set_stylebox_name
+var type_name : String = "":
+	set = set_type_name
+var selected : bool = false:
+	set = set_selected
 
 # Node references
-onready var stylebox_title : Label = $Layout/StyleboxName
-onready var stylebox_preview : Panel = $Layout/PreviewContainer/PreviewPanel
-onready var preview_background : TextureRect = $Layout/PreviewContainer/PreviewBackground
+@onready var stylebox_title : Label = $Layout/StyleboxName
+@onready var stylebox_preview : Panel = $Layout/PreviewContainer/PreviewPanel
+@onready var preview_background : TextureRect = $Layout/PreviewContainer/PreviewBackground
 
 signal item_selected()
 
@@ -24,9 +27,16 @@ func _ready() -> void:
 	_update_background()
 
 func _gui_input(event : InputEvent) -> void:
-	if (event is InputEventMouseButton && event.button_index == BUTTON_LEFT && !event.is_pressed() && !event.is_echo()):
+	if (event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_LEFT && !event.is_pressed() && !event.is_echo()):
 		set_selected(true)
 		emit_signal("item_selected")
+
+func _notification(what : int) -> void:
+	# FIXME: get_theme_* doesn't work as expected on ready for some reason; probably an upstream issue with Godot 4
+	if (what == NOTIFICATION_THEME_CHANGED):
+		_update_preview_background()
+		_update_preview()
+		_update_background()
 
 # Properties
 func set_stylebox_name(value : String) -> void:
@@ -58,15 +68,16 @@ func set_selected(value : bool) -> void:
 
 # Helpers
 func _update_preview() -> void:
-	if (stylebox_name.empty() || type_name.empty() || !is_inside_tree()):
+	if (stylebox_name.is_empty() || type_name.is_empty() || !is_inside_tree()):
 		return
 
-	var stylebox = get_stylebox(stylebox_name, type_name)
-	stylebox_preview.add_stylebox_override("panel", stylebox)
+	var stylebox = get_theme_stylebox(stylebox_name, type_name)
+	stylebox_preview.add_theme_stylebox_override("panel", stylebox)
 
 func _update_preview_background() -> void:
-	var bg_image = preview_background_texture.get_data()
-	bg_image.expand_x2_hq2x()
+	var bg_image = preview_background_texture.get_image()
+	# FIXME: Find out why the method was removed and what's the workaround
+	#bg_image.expand_x2_hq2x()
 	var bg_texture = ImageTexture.new()
 	bg_texture.create_from_image(bg_image)
 	preview_background.texture = bg_texture
@@ -77,7 +88,7 @@ func _update_background() -> void:
 
 	var label_stylebox = StyleBoxFlat.new()
 	if (selected):
-		label_stylebox.bg_color = get_color("highlight_color", "Editor")
+		label_stylebox.bg_color = get_theme_color("highlight_color", "Editor")
 	else:
 		label_stylebox.bg_color = Color(0, 0, 0, 0)
-	stylebox_title.add_stylebox_override("normal", label_stylebox)
+	stylebox_title.add_theme_stylebox_override("normal", label_stylebox)

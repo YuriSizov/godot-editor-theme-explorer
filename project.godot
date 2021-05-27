@@ -20,4 +20,8 @@ config/icon="res://addons/explore-editor-theme/plugin-icon.png"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/explore-editor-theme/plugin.cfg" )
+enabled=PackedStringArray( "res://addons/explore-editor-theme/plugin.cfg" )
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

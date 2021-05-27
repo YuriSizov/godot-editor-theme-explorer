@@ -89,6 +89,8 @@ margin_right = 270.0
 margin_bottom = 120.0
 rect_min_size = Vector2( 0, 120 )
 stretch_mode = 2
+texture_filter = 1
+texture_repeat = 2
 
 [node name="StyleboxPreviewPanel" type="Panel" parent="Layout/StyleboxView/StyleboxPanel/StyleboxPreview"]
 margin_left = 87.0

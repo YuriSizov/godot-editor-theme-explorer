@@ -35,4 +35,4 @@ margin_top = 80.0
 margin_right = 610.0
 margin_bottom = 530.0
 rect_min_size = Vector2( 650, 450 )
-filters = PoolStringArray( "*.png ; PNG Image" )
+filters = PackedStringArray( "*.png ; PNG Image" )

@@ -1,15 +1,17 @@
-tool
+@tool
 extends VBoxContainer
 
 # Node references
-onready var code_input : TextEdit = $CodeText
-onready var copy_code_button : Button = $CopyCodeButton
+@onready var code_input : TextEdit = $CodeText
+@onready var copy_code_button : Button = $CopyCodeButton
 
 # Public variables
-var code_text : String = "" setget set_code_text
+var code_text : String = "":
+	set = set_code_text
 
 func _ready() -> void:
-	copy_code_button.connect("pressed", self, "_on_copy_button_pressed")
+	# FIXME: Replace with pressed when it is renamed and no longer conflicts with a property
+	copy_code_button.button_up.connect(self._on_copy_button_pressed)
 
 # Properties
 func set_code_text(value : String) -> void:
@@ -19,8 +21,9 @@ func set_code_text(value : String) -> void:
 # Handlers
 func _on_copy_button_pressed() -> void:
 	var copied_text = code_input.text.strip_edges()
-	if (copied_text.empty()):
+	if (copied_text.is_empty()):
 		return
-	
-	OS.clipboard = copied_text
-	copy_code_button.icon = get_icon("StatusSuccess", "EditorIcons")
+
+	# TODO: Make sure this is the proper new method; docs are empty at the moment
+	DisplayServer.clipboard_set(copied_text)
+	copy_code_button.icon = get_theme_icon("StatusSuccess", "EditorIcons")

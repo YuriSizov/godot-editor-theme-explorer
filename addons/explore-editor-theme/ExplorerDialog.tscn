@@ -9,13 +9,14 @@
 
 [sub_resource type="Theme" id=1]
 
-[node name="ExplorerDialog" type="WindowDialog"]
-margin_right = 980.0
-margin_bottom = 640.0
-rect_min_size = Vector2( 996, 640 )
+[node name="ExplorerDialog" type="Window"]
+title = "Editor Theme Explorer"
+visible = false
+wrap_controls = true
+transient = true
+size = Vector2( 996, 640 )
+min_size = Vector2( 996, 640 )
 theme = SubResource( 1 )
-window_title = "Editor Theme Explorer"
-resizable = true
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -29,6 +30,7 @@ color = Color( 0, 0, 0, 1 )
 [node name="Layout" type="MarginContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+texture_filter = 1
 custom_constants/margin_right = 8
 custom_constants/margin_top = 8
 custom_constants/margin_left = 8

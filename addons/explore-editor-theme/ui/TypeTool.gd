@@ -1,15 +1,15 @@
-tool
+@tool
 extends HBoxContainer
 
 # Node references
-onready var label : Label = $Label
-onready var input : OptionButton = $Input
+@onready var label : Label = $Label
+@onready var input : OptionButton = $Input
 
 signal item_selected(index)
 
 func _ready() -> void:
 	input.clear()
-	input.connect("item_selected", self, "_on_input_item_selected")
+	input.item_selected.connect(self._on_input_item_selected)
 
 func add_text_item(value : String) -> void:
 	input.add_item(value)
