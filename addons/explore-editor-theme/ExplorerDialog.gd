@@ -4,6 +4,7 @@ extends WindowDialog
 signal filesystem_changed()
 
 # Public properties
+var editor_plugin : EditorPlugin
 var editor_theme : Theme setget set_editor_theme
 
 # Node references

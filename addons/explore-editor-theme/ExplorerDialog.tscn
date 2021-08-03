@@ -40,7 +40,7 @@ __meta__ = {
 [node name="TabContainer" type="TabContainer" parent="Layout"]
 margin_left = 8.0
 margin_top = 8.0
-margin_right = 972.0
+margin_right = 988.0
 margin_bottom = 632.0
 size_flags_vertical = 3
 

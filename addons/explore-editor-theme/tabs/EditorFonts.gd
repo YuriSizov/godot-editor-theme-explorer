@@ -16,6 +16,7 @@ onready var font_panel : Control = $Layout/FontView/FontPanel
 onready var font_preview : Label = $Layout/FontView/FontPanel/FontPreview
 onready var font_title : Label = $Layout/FontView/FontPanel/FontName
 onready var font_code : Control = $Layout/FontView/FontPanel/FontCode
+onready var font_inspector : Control = $Layout/FontView/FontPanel/FontInspector
 
 # Scene references
 var font_item_scene = preload("res://addons/explore-editor-theme/lists/FontListItem.tscn")
@@ -92,6 +93,7 @@ func _on_font_item_selected(font_item : Control) -> void:
 	font_preview.add_font_override("font", get_font(font_name, type_name))
 	font_title.text = font_name
 	font_code.code_text = "get_font(\"" + font_name + "\", \"" + type_name + "\")"
+	font_inspector.inspected_resource = get_font(font_name, type_name)
 	
 	if (!font_panel.visible):
 		empty_panel.hide()
