@@ -8,7 +8,7 @@ func get_plugin_name() -> String:
 	return plugin_name
 
 func _enter_tree():
-	dialog_instance = preload("res://addons/explore-editor-theme/ExplorerDialog.tscn").instance()
+	dialog_instance = preload("res://addons/explore-editor-theme/ExplorerDialog.tscn").instantiate()
 	get_editor_interface().get_base_control().add_child(dialog_instance)
 
 	var godot_theme = get_editor_interface().get_base_control().theme

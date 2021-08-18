@@ -64,7 +64,7 @@ func _refresh_font_list() -> void:
 		if (!prefix.is_empty() && font.findn(prefix) < 0):
 			continue
 
-		var font_item = font_item_scene.instance()
+		var font_item = font_item_scene.instantiate()
 		font_item.font_name = font
 		font_item.type_name = type_name
 		font_item.sample_text = sample

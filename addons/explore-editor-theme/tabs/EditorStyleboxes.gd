@@ -80,7 +80,7 @@ func _refresh_stylebox_list() -> void:
 		if (!prefix.is_empty() && stylebox.findn(prefix) < 0):
 			continue
 
-		var stylebox_item = stylebox_item_scene.instance()
+		var stylebox_item = stylebox_item_scene.instantiate()
 		stylebox_item.stylebox_name = stylebox
 		stylebox_item.type_name = type_name
 		stylebox_item.size_flags_horizontal = SIZE_EXPAND_FILL

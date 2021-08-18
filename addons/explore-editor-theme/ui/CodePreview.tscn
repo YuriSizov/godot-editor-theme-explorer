@@ -10,13 +10,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CodeText" type="TextEdit" parent="."]
+[node name="CodeText" type="CodeEdit" parent="."]
 margin_right = 1024.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 0, 64 )
 readonly = true
-syntax_highlighting = true
-wrap_enabled = true
+wrap_mode = 1
 
 [node name="Padding" type="Control" parent="."]
 margin_top = 68.0
