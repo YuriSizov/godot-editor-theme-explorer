@@ -33,10 +33,14 @@ Colors are displayed using a checkered black-and-white texture, to give a better
 
 Fonts are demonstrated using a sample text, that can be customized by a user.
 
+Fonts can also be explored in the Inspector as a normal resource.
+
 ### Styleboxes
 ![Icons tab](images/preview-5.png)
 
 Styleboxes are previewed by being applied to a small `Panel`. A lot of them do not carry any visual style, or can have a style that matches background, so a checkered background is used once again to give a better idea of what each Stylebox does.
+
+Styleboxes can also be explored in the Inspector as a normal resource.
 
 ### Constants
 ![Icons tab](images/preview-6.png)

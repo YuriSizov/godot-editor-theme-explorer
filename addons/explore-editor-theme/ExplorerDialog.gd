@@ -4,6 +4,7 @@ extends Window
 signal filesystem_changed()
 
 # Public properties
+var editor_plugin : EditorPlugin
 var editor_theme : Theme:
 	set = set_editor_theme
 

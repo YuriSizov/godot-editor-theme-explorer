@@ -19,6 +19,7 @@ var _default_type_name : String = "EditorStyles"
 @onready var preview_background : TextureRect = $Layout/StyleboxView/StyleboxPanel/StyleboxPreview/PreviewBackground
 @onready var stylebox_title : Label = $Layout/StyleboxView/StyleboxPanel/StyleboxName
 @onready var stylebox_code : Control = $Layout/StyleboxView/StyleboxPanel/StyleboxCode
+@onready var stylebox_inspector : Control = $Layout/StyleboxView/StyleboxPanel/StyleboxInspector
 
 # Scene references
 var stylebox_item_scene = preload("res://addons/explore-editor-theme/lists/StyleboxListItem.tscn")
@@ -109,6 +110,7 @@ func _on_stylebox_item_selected(stylebox_item : Control) -> void:
 	stylebox_title.text = stylebox_name
 	stylebox_preview.add_theme_stylebox_override("panel", get_theme_stylebox(stylebox_name, type_name))
 	stylebox_code.code_text = "get_theme_stylebox(\"" + stylebox_name + "\", \"" + type_name + "\")"
+	stylebox_inspector.inspected_resource = get_theme_stylebox(stylebox_name, type_name)
 
 	if (!stylebox_panel.visible):
 		empty_panel.hide()
