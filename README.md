@@ -1,7 +1,7 @@
 # Godot Editor Theme Explorer
 Editor plugin which allows plugin developers to quickly reference various `Theme` properties defined in the main Editor Theme. This allows creators to make GUI for their plugins as seamless as possible, relying on style definitions made by Godot Engine developers and giving their users a consistent look across the board.
 
-Developed in and tested against Godot 3.2/3.3.
+Developed in and tested against Godot 3.2–3.4.
 
 ## Installation
 Clone this repository or download it as ZIP. You only need to put `addons/explore-editor-theme` folder inside your project folder. ZIP already has only necessary files.
@@ -32,10 +32,14 @@ Colors are displayed using a checkered black-and-white texture, to give a better
 
 Fonts are demonstrated using a sample text, that can be customized by a user.
 
+Fonts can also be explored in the Inspector as a normal resource.
+
 ### Styleboxes
 ![Icons tab](images/preview-5.png)
 
 Styleboxes are previewed by being applied to a small `Panel`. A lot of them do not carry any visual style, or can have a style that matches background, so a checkered background is used once again to give a better idea of what each Stylebox does.
+
+Styleboxes can also be explored in the Inspector as a normal resource.
 
 ### Constants
 ![Icons tab](images/preview-6.png)
