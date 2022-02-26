@@ -82,7 +82,8 @@ func _on_color_item_selected(item_index : int) -> void:
 
 	color_preview.texture = color_texture
 	color_preview.self_modulate = color_modulate
-	color_preview_info.text  = "R: %.5f\n" % [ color_modulate.r ]
+    color_preview_info.text  = "# %s\n" % [ color_modulate.to_html(!is_equal_approx(color_modulate.a, 1.0)) ]
+    color_preview_info.text += "R: %.5f\n" % [ color_modulate.r ]
 	color_preview_info.text += "G: %.5f\n" % [ color_modulate.g ]
 	color_preview_info.text += "B: %.5f\n" % [ color_modulate.b ]
 	color_preview_info.text += "A: %.5f"   % [ color_modulate.a ]

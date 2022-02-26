@@ -79,6 +79,7 @@ func _on_icon_item_selected(item_index : int) -> void:
 	var type_name = type_tool.get_selected_text()
 
 	icon_preview.texture = icon_texture
+	icon_preview_info.text = str(icon_texture.get_width()) + "x" + str(icon_texture.get_height())
 	icon_title.text = icon_name
 	icon_code.code_text = "get_theme_icon(\"" + icon_name + "\", \"" + type_name + "\")"
 
