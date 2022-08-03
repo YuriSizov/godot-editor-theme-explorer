@@ -15,4 +15,4 @@ func _ready() -> void:
 
 func _on_input_text_changed(value : String) -> void:
 	filter_text = value
-	emit_signal("text_changed", value)
+	text_changed.emit(value)

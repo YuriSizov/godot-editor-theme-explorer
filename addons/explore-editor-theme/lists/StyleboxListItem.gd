@@ -29,14 +29,7 @@ func _ready() -> void:
 func _gui_input(event : InputEvent) -> void:
 	if (event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_LEFT && !event.is_pressed() && !event.is_echo()):
 		set_selected(true)
-		emit_signal("item_selected")
-
-func _notification(what : int) -> void:
-	# FIXME: get_theme_* doesn't work as expected on ready for some reason; probably an upstream issue with Godot 4
-	if (what == NOTIFICATION_THEME_CHANGED):
-		_update_preview_background()
-		_update_preview()
-		_update_background()
+		item_selected.emit()
 
 # Properties
 func set_stylebox_name(value : String) -> void:
@@ -83,7 +76,7 @@ func _update_preview_background() -> void:
 	preview_background.texture = bg_texture
 
 func _update_background() -> void:
-	if (!is_inside_tree() || !Engine.editor_hint):
+	if (!is_inside_tree() || !Engine.is_editor_hint()):
 		return
 
 	var label_stylebox = StyleBoxFlat.new()

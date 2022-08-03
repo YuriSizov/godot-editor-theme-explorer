@@ -27,7 +27,7 @@ func _ready() -> void:
 	constant_list.item_selected.connect(self._on_constant_item_selected)
 
 func _update_theme() -> void:
-	if (!is_inside_tree() || !Engine.editor_hint):
+	if (!is_inside_tree() || !Engine.is_editor_hint()):
 		return
 
 	constant_title.add_theme_font_override("font", get_theme_font("title", "EditorFonts"))

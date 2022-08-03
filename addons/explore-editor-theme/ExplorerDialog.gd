@@ -20,14 +20,14 @@ var editor_theme : Theme:
 func _ready() -> void:
 	_update_theme()
 
-	icon_explorer.filesystem_changed.connect(self.emit_signal, ["filesystem_changed"])
+	icon_explorer.filesystem_changed.connect(self.emit_signal.bind("filesystem_changed"))
 
 func _notification(what : int) -> void:
 	if (what == NOTIFICATION_WM_CLOSE_REQUEST):
 		hide()
 
 func _update_theme() -> void:
-	if (!is_inside_tree() || !Engine.editor_hint):
+	if (!is_inside_tree() || !Engine.is_editor_hint()):
 		return
 
 	background_panel.color = get_theme_color("dark_color_2", "Editor")

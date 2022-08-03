@@ -6,25 +6,22 @@
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="CodeText" type="CodeEdit" parent="."]
-margin_right = 1024.0
-margin_bottom = 64.0
-rect_min_size = Vector2( 0, 64 )
+offset_right = 1024.0
+offset_bottom = 64.0
+custom_minimum_size = Vector2( 0, 64 )
 readonly = true
 wrap_mode = 1
 
 [node name="Padding" type="Control" parent="."]
-margin_top = 68.0
-margin_right = 1024.0
-margin_bottom = 76.0
-rect_min_size = Vector2( 0, 8 )
+offset_top = 68.0
+offset_right = 1024.0
+offset_bottom = 76.0
+custom_minimum_size = Vector2( 0, 8 )
 
 [node name="CopyCodeButton" type="Button" parent="."]
-margin_top = 80.0
-margin_right = 1024.0
-margin_bottom = 100.0
+offset_top = 80.0
+offset_right = 1024.0
+offset_bottom = 100.0
 text = "Copy Code"

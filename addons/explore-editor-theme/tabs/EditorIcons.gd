@@ -29,10 +29,10 @@ func _ready() -> void:
 	filter_tool.text_changed.connect(self._on_filter_text_changed)
 	type_tool.item_selected.connect(self._on_type_item_selected)
 	icon_list.item_selected.connect(self._on_icon_item_selected)
-	icon_saver.filesystem_changed.connect(self.emit_signal, ["filesystem_changed"])
+	icon_saver.filesystem_changed.connect(self.emit_signal.bind("filesystem_changed"))
 
 func _update_theme() -> void:
-	if (!is_inside_tree() || !Engine.editor_hint):
+	if (!is_inside_tree() || !Engine.is_editor_hint()):
 		return
 
 	icon_preview_info.add_theme_color_override("font_color", get_theme_color("contrast_color_2", "Editor"))

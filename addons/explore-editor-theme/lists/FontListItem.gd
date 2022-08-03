@@ -28,13 +28,7 @@ func _ready() -> void:
 func _gui_input(event : InputEvent) -> void:
 	if (event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_LEFT && !event.is_pressed() && !event.is_echo()):
 		set_selected(true)
-		emit_signal("item_selected")
-
-func _notification(what : int) -> void:
-	# FIXME: get_theme_* doesn't work as expected on ready for some reason; probably an upstream issue with Godot 4
-	if (what == NOTIFICATION_THEME_CHANGED):
-		_update_sample_font()
-		_update_background()
+		item_selected.emit()
 
 # Properties
 func set_font_name(value : String) -> void:
@@ -78,17 +72,15 @@ func _update_sample_font() -> void:
 	font_sample.add_theme_font_override("font", sample_font)
 	font_sample.add_theme_color_override("font_color", get_theme_color("accent_color", "Editor"))
 
-	rect_min_size.y = 40.0 + sample_font.get_height()
+	custom_minimum_size.y = 40.0 + sample_font.get_height()
 
 func _update_background() -> void:
 	if (!is_inside_tree()):
 		return
 
 	var label_stylebox = get_theme_stylebox("panel", "Panel").duplicate() as StyleBoxFlat
-	# FIXME: get_theme_* doesn't work as expected on ready for some reason, so this object can be empty; probably an upstream issue with Godot 4
-	if (label_stylebox):
-		if (selected):
-			label_stylebox.bg_color = get_theme_color("highlight_color", "Editor")
-		else:
-			label_stylebox.bg_color = Color(0, 0, 0, 0)
-		background_panel.add_theme_stylebox_override("panel", label_stylebox)
+	if (selected):
+		label_stylebox.bg_color = get_theme_color("highlight_color", "Editor")
+	else:
+		label_stylebox.bg_color = Color(0, 0, 0, 0)
+	background_panel.add_theme_stylebox_override("panel", label_stylebox)

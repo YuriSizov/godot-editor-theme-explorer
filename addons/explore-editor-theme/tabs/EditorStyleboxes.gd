@@ -35,7 +35,7 @@ func _ready() -> void:
 	type_tool.item_selected.connect(self._on_type_item_selected)
 
 func _update_theme() -> void:
-	if (!is_inside_tree() || !Engine.editor_hint):
+	if (!is_inside_tree() || !Engine.is_editor_hint()):
 		return
 
 	stylebox_preview.add_theme_color_override("font_color", get_theme_color("accent_color", "Editor"))
@@ -87,7 +87,7 @@ func _refresh_stylebox_list() -> void:
 		stylebox_item.size_flags_horizontal = SIZE_EXPAND_FILL
 		horizontal_container.add_child(stylebox_item)
 
-		stylebox_item.item_selected.connect(self._on_stylebox_item_selected, [ stylebox_item ])
+		stylebox_item.item_selected.connect(self._on_stylebox_item_selected.bind(stylebox_item))
 		item_index += 1
 		if (item_index % 4 == 0):
 			stylebox_list.add_child(horizontal_container)

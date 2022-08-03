@@ -18,4 +18,4 @@ func get_selected_text() -> String:
 	return input.get_item_text(input.selected)
 
 func _on_input_item_selected(item_id : int) -> void:
-	emit_signal("item_selected", input.get_item_index(item_id))
+	item_selected.emit(input.get_item_index(item_id))

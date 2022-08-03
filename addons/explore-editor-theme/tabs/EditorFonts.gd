@@ -32,7 +32,7 @@ func _ready() -> void:
 	sample_tool.text_changed.connect(self._on_sample_text_changed)
 
 func _update_theme() -> void:
-	if (!is_inside_tree() || !Engine.editor_hint):
+	if (!is_inside_tree() || !Engine.is_editor_hint()):
 		return
 
 	font_preview.add_theme_color_override("font_color", get_theme_color("accent_color", "Editor"))
@@ -70,7 +70,7 @@ func _refresh_font_list() -> void:
 		font_item.type_name = type_name
 		font_item.sample_text = sample
 		font_list.add_child(font_item)
-		font_item.item_selected.connect(self._on_font_item_selected, [ font_item ])
+		font_item.item_selected.connect(self._on_font_item_selected.bind(font_item))
 
 # Events
 func _on_filter_text_changed(value : String) -> void:

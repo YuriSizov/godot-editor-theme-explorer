@@ -31,7 +31,7 @@ func _ready() -> void:
 	color_list.item_selected.connect(self._on_color_item_selected)
 
 func _update_theme() -> void:
-	if (!is_inside_tree() || !Engine.editor_hint):
+	if (!is_inside_tree() || !Engine.is_editor_hint()):
 		return
 
 	color_preview_info.add_theme_color_override("font_color", get_theme_color("contrast_color_2", "Editor"))

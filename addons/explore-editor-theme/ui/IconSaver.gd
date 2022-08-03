@@ -31,7 +31,7 @@ func set_type_name(value : String) -> void:
 
 # Helpers
 func _show_status(success : bool, message : String = "") -> void:
-	if (!is_inside_tree() || !Engine.editor_hint):
+	if (!is_inside_tree() || !Engine.is_editor_hint()):
 		return
 
 	if (success):
@@ -51,7 +51,7 @@ func _show_status(success : bool, message : String = "") -> void:
 		status_message.hide()
 
 func _clear_status() -> void:
-	if (!is_inside_tree() || !Engine.editor_hint):
+	if (!is_inside_tree() || !Engine.is_editor_hint()):
 		return
 
 	save_button.icon = null
@@ -75,4 +75,4 @@ func _on_file_selected(path: String) -> void:
 		return
 
 	_show_status(true)
-	emit_signal("filesystem_changed")
+	filesystem_changed.emit()
