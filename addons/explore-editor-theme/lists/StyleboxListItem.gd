@@ -79,7 +79,7 @@ func _update_preview_background() -> void:
 	#bg_image.expand_x2_hq2x()
 	var bg_texture = ImageTexture.new()
 	bg_texture.create_from_image(bg_image)
-	preview_background.texture = bg_texture
+	preview_background.texture = preview_background_texture
 
 func _update_background() -> void:
 	if (!_PluginUtils.get_plugin_instance(self)):

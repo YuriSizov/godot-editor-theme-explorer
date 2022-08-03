@@ -82,10 +82,10 @@ func _on_color_item_selected(item_index : int) -> void:
 
 	color_preview.texture = color_texture
 	color_preview.self_modulate = color_modulate
-	color_preview_info.text = "R: " + str(color_modulate.r) + "\n"
-	color_preview_info.text += "G: " + str(color_modulate.g) + "\n"
-	color_preview_info.text += "B: " + str(color_modulate.b) + "\n"
-	color_preview_info.text += "A: " + str(color_modulate.a) + ""
+	color_preview_info.text  = "R: %.5f\n" % [ color_modulate.r ]
+	color_preview_info.text += "G: %.5f\n" % [ color_modulate.g ]
+	color_preview_info.text += "B: %.5f\n" % [ color_modulate.b ]
+	color_preview_info.text += "A: %.5f"   % [ color_modulate.a ]
 	color_title.text = color_name
 	color_code.code_text = "get_theme_color(\"" + color_name + "\", \"" + type_name + "\")"
 
