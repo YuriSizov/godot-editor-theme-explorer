@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://dtnrjguhery8r"]
 
 [ext_resource type="Script" path="res://addons/explore-editor-theme/tabs/EditorIcons.gd" id="1"]
-[ext_resource type="PackedScene" path="res://addons/explore-editor-theme/ui/CodePreview.tscn" id="2"]
-[ext_resource type="PackedScene" path="res://addons/explore-editor-theme/ui/FilterTool.tscn" id="3"]
-[ext_resource type="PackedScene" path="res://addons/explore-editor-theme/ui/TypeTool.tscn" id="4"]
-[ext_resource type="PackedScene" path="res://addons/explore-editor-theme/ui/IconSaver.tscn" id="6"]
+[ext_resource type="PackedScene" uid="uid://ds8c70l2dnpy8" path="res://addons/explore-editor-theme/ui/CodePreview.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://c6mun6p3lk1k6" path="res://addons/explore-editor-theme/ui/FilterTool.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://bg7phy5jdt0wl" path="res://addons/explore-editor-theme/ui/TypeTool.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://dwsc0c4b3wt28" path="res://addons/explore-editor-theme/ui/IconSaver.tscn" id="6"]
 
 [node name="Icons" type="MarginContainer"]
 anchor_right = 1.0
@@ -20,11 +20,11 @@ offset_right = 1024.0
 offset_bottom = 31.0
 
 [node name="Filter" parent="Layout/Toolbar" instance=ExtResource("3")]
-offset_right = 849.0
+offset_right = 740.0
 offset_bottom = 31.0
 
 [node name="Type" parent="Layout/Toolbar" instance=ExtResource("4")]
-offset_left = 853.0
+offset_left = 744.0
 offset_right = 1024.0
 offset_bottom = 31.0
 
@@ -35,7 +35,7 @@ offset_bottom = 600.0
 size_flags_vertical = 3
 
 [node name="IconList" type="ItemList" parent="Layout/IconView"]
-offset_right = 1020.0
+offset_right = 750.0
 offset_bottom = 565.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -46,22 +46,22 @@ fixed_icon_size = Vector2(16, 16)
 
 [node name="IconPanel" type="VBoxContainer" parent="Layout/IconView"]
 visible = false
+custom_minimum_size = Vector2(270, 0)
 offset_left = 452.0
 offset_right = 722.0
 offset_bottom = 272.0
-custom_minimum_size = Vector2( 270, 0 )
 size_flags_vertical = 3
 
 [node name="Padding0" type="Control" parent="Layout/IconView/IconPanel"]
+custom_minimum_size = Vector2(0, 8)
 offset_right = 280.0
 offset_bottom = 8.0
-custom_minimum_size = Vector2( 0, 8 )
 
 [node name="IconPreview" type="TextureRect" parent="Layout/IconView/IconPanel"]
+custom_minimum_size = Vector2(64, 64)
 offset_top = 12.0
 offset_right = 280.0
 offset_bottom = 76.0
-custom_minimum_size = Vector2( 64, 64 )
 stretch_mode = 6
 
 [node name="IconPreviewInfo" type="Label" parent="Layout/IconView/IconPanel/IconPreview"]
@@ -70,10 +70,10 @@ offset_bottom = 14.0
 text = "64x64"
 
 [node name="Padding1" type="Control" parent="Layout/IconView/IconPanel"]
+custom_minimum_size = Vector2(0, 12)
 offset_top = 80.0
 offset_right = 280.0
 offset_bottom = 92.0
-custom_minimum_size = Vector2( 0, 12 )
 
 [node name="IconName" type="Label" parent="Layout/IconView/IconPanel"]
 offset_top = 96.0
@@ -81,10 +81,10 @@ offset_right = 280.0
 offset_bottom = 127.0
 
 [node name="Padding2" type="Control" parent="Layout/IconView/IconPanel"]
+custom_minimum_size = Vector2(0, 12)
 offset_top = 131.0
 offset_right = 280.0
 offset_bottom = 143.0
-custom_minimum_size = Vector2( 0, 12 )
 
 [node name="IconCode" parent="Layout/IconView/IconPanel" instance=ExtResource("2")]
 anchor_right = 0.0
@@ -98,7 +98,7 @@ offset_top = 270.0
 offset_bottom = 309.0
 
 [node name="EmptyPanel" type="Control" parent="Layout/IconView"]
+custom_minimum_size = Vector2(270, 0)
 offset_left = 754.0
 offset_right = 1024.0
-offset_bottom = 572.0
-custom_minimum_size = Vector2( 270, 0 )
+offset_bottom = 565.0

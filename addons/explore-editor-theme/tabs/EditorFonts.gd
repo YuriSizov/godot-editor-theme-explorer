@@ -5,6 +5,9 @@ extends MarginContainer
 var _font_map : Dictionary = {}
 var _default_type_name : String = "EditorFonts"
 
+# Utils
+const _PluginUtils := preload("res://addons/explore-editor-theme/utils/PluginUtils.gd")
+
 # Node references
 @onready var filter_tool : Control = $Layout/Toolbar/Filter
 @onready var type_tool : Control = $Layout/Toolbar/Type
@@ -32,7 +35,7 @@ func _ready() -> void:
 	sample_tool.text_changed.connect(self._on_sample_text_changed)
 
 func _update_theme() -> void:
-	if (!is_inside_tree() || !Engine.is_editor_hint()):
+	if (!_PluginUtils.get_plugin_instance(self)):
 		return
 
 	font_preview.add_theme_color_override("font_color", get_theme_color("accent_color", "Editor"))

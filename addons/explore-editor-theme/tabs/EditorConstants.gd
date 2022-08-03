@@ -1,6 +1,9 @@
 @tool
 extends MarginContainer
 
+# Utils
+const _PluginUtils := preload("res://addons/explore-editor-theme/utils/PluginUtils.gd")
+
 # Node references
 @onready var filter_tool : Control = $Layout/Toolbar/Filter
 @onready var type_tool : Control = $Layout/Toolbar/Type
@@ -27,7 +30,7 @@ func _ready() -> void:
 	constant_list.item_selected.connect(self._on_constant_item_selected)
 
 func _update_theme() -> void:
-	if (!is_inside_tree() || !Engine.is_editor_hint()):
+	if (!_PluginUtils.get_plugin_instance(self)):
 		return
 
 	constant_title.add_theme_font_override("font", get_theme_font("title", "EditorFonts"))

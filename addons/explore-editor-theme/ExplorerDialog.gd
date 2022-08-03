@@ -8,6 +8,9 @@ var editor_plugin : EditorPlugin
 var editor_theme : Theme:
 	set = set_editor_theme
 
+# Utils
+const _PluginUtils := preload("res://addons/explore-editor-theme/utils/PluginUtils.gd")
+
 # Node references
 @onready var background_panel : ColorRect = $Panel
 
@@ -27,7 +30,7 @@ func _notification(what : int) -> void:
 		hide()
 
 func _update_theme() -> void:
-	if (!is_inside_tree() || !Engine.is_editor_hint()):
+	if (!_PluginUtils.get_plugin_instance(self)):
 		return
 
 	background_panel.color = get_theme_color("dark_color_2", "Editor")

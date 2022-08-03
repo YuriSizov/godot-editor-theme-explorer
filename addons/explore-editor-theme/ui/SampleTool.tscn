@@ -1,23 +1,23 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=2 format=3 uid="uid://cykapqu53xah8"]
 
-[ext_resource path="res://addons/explore-editor-theme/ui/SampleTool.gd" type="Script" id=1]
+[ext_resource type="Script" path="res://addons/explore-editor-theme/ui/SampleTool.gd" id="1"]
 
 [node name="Sample" type="HBoxContainer"]
 offset_left = 780.0
 offset_right = 1272.0
 offset_bottom = 24.0
 size_flags_horizontal = 3
-script = ExtResource( 1 )
+script = ExtResource("1")
 
 [node name="Label" type="Label" parent="."]
-offset_top = 5.0
-offset_right = 47.0
-offset_bottom = 19.0
+offset_top = 2.0
+offset_right = 58.0
+offset_bottom = 28.0
 text = "Sample"
 
 [node name="Input" type="LineEdit" parent="."]
-offset_left = 51.0
+offset_left = 62.0
 offset_right = 492.0
-offset_bottom = 24.0
+offset_bottom = 31.0
 size_flags_horizontal = 3
 clear_button_enabled = true

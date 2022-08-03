@@ -9,6 +9,9 @@ var icon_name: String = "":
 var type_name: String = "":
 	set = set_type_name
 
+# Utils
+const _PluginUtils := preload("res://addons/explore-editor-theme/utils/PluginUtils.gd")
+
 # Node references
 @onready var save_button: Button = $SaveButton
 @onready var save_dialog: FileDialog = $SaveDialog
@@ -31,7 +34,7 @@ func set_type_name(value : String) -> void:
 
 # Helpers
 func _show_status(success : bool, message : String = "") -> void:
-	if (!is_inside_tree() || !Engine.is_editor_hint()):
+	if (!_PluginUtils.get_plugin_instance(self)):
 		return
 
 	if (success):
@@ -51,7 +54,7 @@ func _show_status(success : bool, message : String = "") -> void:
 		status_message.hide()
 
 func _clear_status() -> void:
-	if (!is_inside_tree() || !Engine.is_editor_hint()):
+	if (!_PluginUtils.get_plugin_instance(self)):
 		return
 
 	save_button.icon = null

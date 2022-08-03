@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://cqum8s71o23cy"]
 
 [ext_resource type="Script" path="res://addons/explore-editor-theme/tabs/EditorConstants.gd" id="1"]
-[ext_resource type="PackedScene" path="res://addons/explore-editor-theme/ui/CodePreview.tscn" id="2"]
-[ext_resource type="PackedScene" path="res://addons/explore-editor-theme/ui/FilterTool.tscn" id="3"]
-[ext_resource type="PackedScene" path="res://addons/explore-editor-theme/ui/TypeTool.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://ds8c70l2dnpy8" path="res://addons/explore-editor-theme/ui/CodePreview.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://c6mun6p3lk1k6" path="res://addons/explore-editor-theme/ui/FilterTool.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://bg7phy5jdt0wl" path="res://addons/explore-editor-theme/ui/TypeTool.tscn" id="4"]
 
 [node name="Constants" type="MarginContainer"]
 anchor_right = 1.0
@@ -19,11 +19,11 @@ offset_right = 1024.0
 offset_bottom = 31.0
 
 [node name="Filter" parent="Layout/Toolbar" instance=ExtResource("3")]
-offset_right = 889.0
+offset_right = 740.0
 offset_bottom = 31.0
 
 [node name="Type" parent="Layout/Toolbar" instance=ExtResource("4")]
-offset_left = 893.0
+offset_left = 744.0
 offset_right = 1024.0
 offset_bottom = 31.0
 
@@ -34,21 +34,21 @@ offset_bottom = 600.0
 size_flags_vertical = 3
 
 [node name="ConstantList" type="ItemList" parent="Layout/ConstantView"]
-offset_right = 1020.0
+offset_right = 750.0
 offset_bottom = 565.0
 size_flags_horizontal = 3
 
 [node name="ConstantPanel" type="VBoxContainer" parent="Layout/ConstantView"]
 visible = false
+custom_minimum_size = Vector2(270, 0)
 offset_left = 708.0
 offset_right = 978.0
 offset_bottom = 172.0
-custom_minimum_size = Vector2( 270, 0 )
 
 [node name="Padding0" type="Control" parent="Layout/ConstantView/ConstantPanel"]
+custom_minimum_size = Vector2(0, 8)
 offset_right = 280.0
 offset_bottom = 8.0
-custom_minimum_size = Vector2( 0, 8 )
 
 [node name="ConstantName" type="Label" parent="Layout/ConstantView/ConstantPanel"]
 offset_top = 12.0
@@ -56,10 +56,10 @@ offset_right = 280.0
 offset_bottom = 26.0
 
 [node name="Padding1" type="Control" parent="Layout/ConstantView/ConstantPanel"]
+custom_minimum_size = Vector2(0, 4)
 offset_top = 30.0
 offset_right = 280.0
 offset_bottom = 34.0
-custom_minimum_size = Vector2( 0, 4 )
 
 [node name="ConstantValue" type="Label" parent="Layout/ConstantView/ConstantPanel"]
 offset_top = 38.0
@@ -67,10 +67,10 @@ offset_right = 280.0
 offset_bottom = 52.0
 
 [node name="Padding2" type="Control" parent="Layout/ConstantView/ConstantPanel"]
+custom_minimum_size = Vector2(0, 12)
 offset_top = 56.0
 offset_right = 280.0
 offset_bottom = 68.0
-custom_minimum_size = Vector2( 0, 12 )
 
 [node name="ConstantCode" parent="Layout/ConstantView/ConstantPanel" instance=ExtResource("2")]
 anchor_right = 0.0
@@ -80,7 +80,7 @@ offset_right = 280.0
 offset_bottom = 172.0
 
 [node name="EmptyPanel" type="Control" parent="Layout/ConstantView"]
+custom_minimum_size = Vector2(270, 0)
 offset_left = 754.0
 offset_right = 1024.0
-offset_bottom = 572.0
-custom_minimum_size = Vector2( 270, 0 )
+offset_bottom = 565.0

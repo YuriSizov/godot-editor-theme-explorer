@@ -1,6 +1,9 @@
 @tool
 extends Panel
 
+# Utils
+const _PluginUtils := preload("res://addons/explore-editor-theme/utils/PluginUtils.gd")
+
 # Node references
 @onready var font_title : Label = $Layout/FontName
 @onready var font_sample : Label = $Layout/FontSample
@@ -65,7 +68,7 @@ func set_selected(value : bool) -> void:
 
 # Helpers
 func _update_sample_font() -> void:
-	if (font_name.is_empty() || type_name.is_empty() || !is_inside_tree()):
+	if (font_name.is_empty() || type_name.is_empty() || !_PluginUtils.get_plugin_instance(self)):
 		return
 
 	var sample_font = get_theme_font(font_name, type_name)
@@ -75,7 +78,7 @@ func _update_sample_font() -> void:
 	custom_minimum_size.y = 40.0 + sample_font.get_height()
 
 func _update_background() -> void:
-	if (!is_inside_tree()):
+	if (!_PluginUtils.get_plugin_instance(self)):
 		return
 
 	var label_stylebox = get_theme_stylebox("panel", "Panel").duplicate() as StyleBoxFlat

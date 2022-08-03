@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://do735jxjqq5b4"]
 
-[ext_resource type="PackedScene" path="res://addons/explore-editor-theme/ui/FilterTool.tscn" id="1"]
-[ext_resource type="PackedScene" path="res://addons/explore-editor-theme/ui/TypeTool.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://c6mun6p3lk1k6" path="res://addons/explore-editor-theme/ui/FilterTool.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://bg7phy5jdt0wl" path="res://addons/explore-editor-theme/ui/TypeTool.tscn" id="2"]
 [ext_resource type="Texture2D" uid="uid://dky5knjdkf38g" path="res://addons/explore-editor-theme/color-preview-icon.tres" id="2_lg4k3"]
 [ext_resource type="Script" path="res://addons/explore-editor-theme/tabs/EditorStyleboxes.gd" id="3"]
-[ext_resource type="PackedScene" path="res://addons/explore-editor-theme/ui/CodePreview.tscn" id="4"]
-[ext_resource type="PackedScene" path="res://addons/explore-editor-theme/ui/ResourceInspector.tscn" id="6"]
+[ext_resource type="PackedScene" uid="uid://ds8c70l2dnpy8" path="res://addons/explore-editor-theme/ui/CodePreview.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://bdtluesl718xb" path="res://addons/explore-editor-theme/ui/ResourceInspector.tscn" id="6"]
 
 [node name="Styleboxes" type="MarginContainer"]
 anchor_right = 1.0

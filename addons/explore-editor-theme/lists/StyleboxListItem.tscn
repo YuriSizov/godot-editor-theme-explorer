@@ -47,7 +47,6 @@ offset_top = 120.0
 offset_right = 1024.0
 offset_bottom = 600.0
 size_flags_vertical = 3
-text = "stylebox"
 horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true

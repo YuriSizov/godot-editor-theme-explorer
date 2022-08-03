@@ -11,6 +11,9 @@ var type_name : String = "":
 var selected : bool = false:
 	set = set_selected
 
+# Utils
+const _PluginUtils := preload("res://addons/explore-editor-theme/utils/PluginUtils.gd")
+
 # Node references
 @onready var stylebox_title : Label = $Layout/StyleboxName
 @onready var stylebox_preview : Panel = $Layout/PreviewContainer/PreviewPanel
@@ -61,13 +64,16 @@ func set_selected(value : bool) -> void:
 
 # Helpers
 func _update_preview() -> void:
-	if (stylebox_name.is_empty() || type_name.is_empty() || !is_inside_tree()):
+	if (stylebox_name.is_empty() || type_name.is_empty() || !_PluginUtils.get_plugin_instance(self)):
 		return
 
 	var stylebox = get_theme_stylebox(stylebox_name, type_name)
 	stylebox_preview.add_theme_stylebox_override("panel", stylebox)
 
 func _update_preview_background() -> void:
+	if !_PluginUtils.get_plugin_instance(self):
+		return
+	
 	var bg_image = preview_background_texture.get_image()
 	# FIXME: Find out why the method was removed and what's the workaround
 	#bg_image.expand_x2_hq2x()
@@ -76,7 +82,7 @@ func _update_preview_background() -> void:
 	preview_background.texture = bg_texture
 
 func _update_background() -> void:
-	if (!is_inside_tree() || !Engine.is_editor_hint()):
+	if (!_PluginUtils.get_plugin_instance(self)):
 		return
 
 	var label_stylebox = StyleBoxFlat.new()

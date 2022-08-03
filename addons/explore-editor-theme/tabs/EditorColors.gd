@@ -8,6 +8,9 @@ extends MarginContainer
 var _color_map : Dictionary = {}
 var _default_type_name : String = "Editor"
 
+# Utils
+const _PluginUtils := preload("res://addons/explore-editor-theme/utils/PluginUtils.gd")
+
 # Node references
 @onready var filter_tool : Control = $Layout/Toolbar/Filter
 @onready var type_tool : Control = $Layout/Toolbar/Type
@@ -31,7 +34,7 @@ func _ready() -> void:
 	color_list.item_selected.connect(self._on_color_item_selected)
 
 func _update_theme() -> void:
-	if (!is_inside_tree() || !Engine.is_editor_hint()):
+	if (!_PluginUtils.get_plugin_instance(self)):
 		return
 
 	color_preview_info.add_theme_color_override("font_color", get_theme_color("contrast_color_2", "Editor"))

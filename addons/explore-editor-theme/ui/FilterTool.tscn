@@ -1,22 +1,22 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=2 format=3 uid="uid://c6mun6p3lk1k6"]
 
-[ext_resource path="res://addons/explore-editor-theme/ui/FilterTool.gd" type="Script" id=1]
+[ext_resource type="Script" path="res://addons/explore-editor-theme/ui/FilterTool.gd" id="1"]
 
 [node name="Filter" type="HBoxContainer"]
 offset_right = 988.0
 offset_bottom = 24.0
 size_flags_horizontal = 3
-script = ExtResource( 1 )
+script = ExtResource("1")
 
 [node name="Label" type="Label" parent="."]
-offset_top = 5.0
-offset_right = 33.0
-offset_bottom = 19.0
+offset_top = 2.0
+offset_right = 40.0
+offset_bottom = 28.0
 text = "Filter"
 
 [node name="Input" type="LineEdit" parent="."]
-offset_left = 37.0
+offset_left = 44.0
 offset_right = 988.0
-offset_bottom = 24.0
+offset_bottom = 31.0
 size_flags_horizontal = 3
 clear_button_enabled = true
