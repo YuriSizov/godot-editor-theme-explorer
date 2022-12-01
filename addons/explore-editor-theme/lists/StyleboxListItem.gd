@@ -23,7 +23,7 @@ signal item_selected()
 
 func _ready() -> void:
 	stylebox_title.text = stylebox_name
-	hint_tooltip = stylebox_name
+	tooltip_text = stylebox_name
 
 	_update_preview_background()
 	_update_preview()
@@ -41,7 +41,7 @@ func set_stylebox_name(value : String) -> void:
 
 	if (is_inside_tree()):
 		stylebox_title.text = stylebox_name
-		hint_tooltip = stylebox_name
+		tooltip_text = stylebox_name
 
 func set_type_name(value : String) -> void:
 	type_name = value
@@ -77,8 +77,7 @@ func _update_preview_background() -> void:
 	var bg_image = preview_background_texture.get_image()
 	# FIXME: Find out why the method was removed and what's the workaround
 	#bg_image.expand_x2_hq2x()
-	var bg_texture = ImageTexture.new()
-	bg_texture.create_from_image(bg_image)
+	ImageTexture.create_from_image(bg_image)
 	preview_background.texture = preview_background_texture
 
 func _update_background() -> void:
