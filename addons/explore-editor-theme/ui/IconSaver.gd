@@ -72,7 +72,7 @@ func _on_file_selected(path: String) -> void:
 		return
 
 	var unique_icon := get_theme_icon(icon_name, type_name).duplicate(true)
-	var error = ResourceSaver.save(path, unique_icon)
+	var error = ResourceSaver.save(unique_icon, path)
 	if (error != OK):
 		_show_status(false, "Error while saving icon.")
 		return

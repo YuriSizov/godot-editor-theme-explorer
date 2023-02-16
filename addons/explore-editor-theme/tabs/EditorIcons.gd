@@ -5,6 +5,7 @@ signal filesystem_changed()
 
 # Utils
 const _PluginUtils := preload("res://addons/explore-editor-theme/utils/PluginUtils.gd")
+const _IconSaver := preload("res://addons/explore-editor-theme/ui/IconSaver.gd")
 
 # Node references
 @onready var filter_tool : Control = $Layout/Toolbar/Filter
@@ -17,7 +18,7 @@ const _PluginUtils := preload("res://addons/explore-editor-theme/utils/PluginUti
 @onready var icon_preview_info : Label = $Layout/IconView/IconPanel/IconPreview/IconPreviewInfo
 @onready var icon_title : Label = $Layout/IconView/IconPanel/IconName
 @onready var icon_code : Control = $Layout/IconView/IconPanel/IconCode
-@onready var icon_saver : VBoxContainer = $Layout/IconView/IconPanel/IconSaver
+@onready var icon_saver : _IconSaver = $Layout/IconView/IconPanel/IconSaver
 
 # Private properties
 var _icon_map : Dictionary = {}
