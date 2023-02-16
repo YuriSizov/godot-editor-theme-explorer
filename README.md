@@ -1,8 +1,7 @@
 # Godot Editor Theme Explorer
 Editor plugin which allows plugin developers to quickly reference various `Theme` properties defined in the main Editor Theme. This allows creators to make GUI for their plugins as seamless as possible, relying on style definitions made by Godot Engine developers and giving their users a consistent look across the board.
 
-THIS IS AN IN-DEV VERSION WITH SUPPORT FOR GODOT 4.0! MAY BREAK AT ANY TIME!
-NOT GUARANTEED TO WORK WITH EVERY RELEASE OR COMMIT. LAST TESTED ON `4.0-alpha13`.
+This is a **preview version** of the plugin for Godot 4. It has been tested to work with _Release Candidate 2_.
 
 ## Installation
 Clone this repository or download it as ZIP. You only need to put `addons/explore-editor-theme` folder inside your project folder. ZIP already has only necessary files.
@@ -12,7 +11,7 @@ Also available from AssetLib within the Editor: https://godotengine.org/asset-li
 ## Features
 This plugin consists of a single window, available from **Project > Tools** menu.
 
-There are 5 sections, giving access to *Icons*, *Colors*, *Fonts*, *Styleboxes*, and *Constants*. All of them feature a list of entries, which can be filtered by name and by type. List entries display their name and, if possible, a small preview of their visual aspect. Selected entries can be previewed further, with additional information and a code snippet to use them.
+There are 5 sections, giving access to *Icons*, *Colors*, *Fonts*, *StyleBoxes*, and *Constants*. All of them feature a list of entries, which can be filtered by name and by type. List entries display their name and, if possible, a small preview of their visual aspect. Selected entries can be previewed further, with additional information and a code snippet to use them.
 
 ![Initial look](images/preview-1.png)
 
@@ -35,12 +34,12 @@ Fonts are demonstrated using a sample text, that can be customized by a user.
 
 Fonts can also be explored in the Inspector as a normal resource.
 
-### Styleboxes
+### StyleBoxes
 ![Icons tab](images/preview-5.png)
 
-Styleboxes are previewed by being applied to a small `Panel`. A lot of them do not carry any visual style, or can have a style that matches background, so a checkered background is used once again to give a better idea of what each Stylebox does.
+StyleBoxes are previewed by being applied to a small `Panel`. A lot of them do not carry any visual style, or can have a style that matches background, so a checkered background is used once again to give a better idea of what each StyleBox does.
 
-Styleboxes can also be explored in the Inspector as a normal resource.
+StyleBoxes can also be explored in the Inspector as a normal resource.
 
 ### Constants
 ![Icons tab](images/preview-6.png)
