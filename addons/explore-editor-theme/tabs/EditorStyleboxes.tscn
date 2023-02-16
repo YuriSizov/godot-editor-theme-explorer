@@ -8,108 +8,81 @@
 [ext_resource type="PackedScene" uid="uid://bdtluesl718xb" path="res://addons/explore-editor-theme/ui/ResourceInspector.tscn" id="6"]
 
 [node name="Styleboxes" type="MarginContainer"]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource("3")
 preview_background_texture = ExtResource("2_lg4k3")
 
 [node name="Layout" type="VBoxContainer" parent="."]
-offset_right = 1024.0
-offset_bottom = 600.0
+layout_mode = 2
 
 [node name="Toolbar" type="HBoxContainer" parent="Layout"]
-offset_right = 1024.0
-offset_bottom = 31.0
+layout_mode = 2
 
 [node name="Filter" parent="Layout/Toolbar" instance=ExtResource("1")]
-offset_right = 740.0
-offset_bottom = 31.0
+layout_mode = 2
 
 [node name="Type" parent="Layout/Toolbar" instance=ExtResource("2")]
-offset_left = 744.0
-offset_right = 1024.0
-offset_bottom = 31.0
+layout_mode = 2
 
 [node name="StyleboxView" type="HBoxContainer" parent="Layout"]
-offset_top = 35.0
-offset_right = 1024.0
-offset_bottom = 600.0
+layout_mode = 2
 size_flags_vertical = 3
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Layout/StyleboxView"]
-offset_right = 750.0
-offset_bottom = 565.0
+layout_mode = 2
 size_flags_horizontal = 3
 horizontal_scroll_mode = 0
 
 [node name="StyleboxList" type="VBoxContainer" parent="Layout/StyleboxView/ScrollContainer"]
-offset_right = 750.0
+layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="StyleboxPanel" type="VBoxContainer" parent="Layout/StyleboxView"]
 visible = false
 custom_minimum_size = Vector2(270, 0)
-offset_left = 480.0
-offset_right = 750.0
-offset_bottom = 572.0
+layout_mode = 2
 
 [node name="Padding0" type="Control" parent="Layout/StyleboxView/StyleboxPanel"]
 custom_minimum_size = Vector2(0, 8)
-offset_right = 270.0
-offset_bottom = 8.0
+layout_mode = 2
 
 [node name="StyleboxPreview" type="MarginContainer" parent="Layout/StyleboxView/StyleboxPanel"]
 custom_minimum_size = Vector2(96, 96)
-offset_top = 12.0
-offset_right = 270.0
-offset_bottom = 132.0
+layout_mode = 2
 
 [node name="PreviewBackground" type="TextureRect" parent="Layout/StyleboxView/StyleboxPanel/StyleboxPreview"]
 modulate = Color(1, 1, 1, 0.0392157)
 texture_filter = 1
 texture_repeat = 2
 custom_minimum_size = Vector2(0, 120)
-offset_right = 270.0
-offset_bottom = 120.0
+layout_mode = 2
 stretch_mode = 1
 
 [node name="StyleboxPreviewPanel" type="Panel" parent="Layout/StyleboxView/StyleboxPanel/StyleboxPreview"]
 custom_minimum_size = Vector2(96, 96)
-offset_left = 87.0
-offset_top = 12.0
-offset_right = 183.0
-offset_bottom = 108.0
+layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="Padding1" type="Control" parent="Layout/StyleboxView/StyleboxPanel"]
 custom_minimum_size = Vector2(0, 12)
-offset_top = 136.0
-offset_right = 270.0
-offset_bottom = 148.0
+layout_mode = 2
 
 [node name="StyleboxName" type="Label" parent="Layout/StyleboxView/StyleboxPanel"]
-offset_top = 152.0
-offset_right = 270.0
-offset_bottom = 166.0
+layout_mode = 2
 
 [node name="Padding2" type="Control" parent="Layout/StyleboxView/StyleboxPanel"]
 custom_minimum_size = Vector2(0, 12)
-offset_top = 170.0
-offset_right = 270.0
-offset_bottom = 182.0
+layout_mode = 2
 
 [node name="StyleboxCode" parent="Layout/StyleboxView/StyleboxPanel" instance=ExtResource("4")]
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_top = 186.0
-offset_right = 270.0
-offset_bottom = 286.0
+layout_mode = 2
 
 [node name="StyleboxInspector" parent="Layout/StyleboxView/StyleboxPanel" instance=ExtResource("6")]
+layout_mode = 2
 
 [node name="EmptyPanel" type="Control" parent="Layout/StyleboxView"]
 custom_minimum_size = Vector2(270, 0)
-offset_left = 754.0
-offset_right = 1024.0
-offset_bottom = 565.0
+layout_mode = 2

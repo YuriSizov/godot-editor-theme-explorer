@@ -8,96 +8,70 @@
 [ext_resource type="PackedScene" uid="uid://bdtluesl718xb" path="res://addons/explore-editor-theme/ui/ResourceInspector.tscn" id="6"]
 
 [node name="Fonts" type="MarginContainer"]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource("1")
 
 [node name="Layout" type="VBoxContainer" parent="."]
-offset_right = 1024.0
-offset_bottom = 600.0
+layout_mode = 2
 
 [node name="Toolbar" type="HBoxContainer" parent="Layout"]
-offset_right = 1024.0
-offset_bottom = 31.0
+layout_mode = 2
 
 [node name="Filter" parent="Layout/Toolbar" instance=ExtResource("3")]
-offset_right = 368.0
-offset_bottom = 31.0
+layout_mode = 2
 
 [node name="Type" parent="Layout/Toolbar" instance=ExtResource("4")]
-offset_left = 372.0
-offset_right = 652.0
-offset_bottom = 31.0
+layout_mode = 2
 
 [node name="Sample" parent="Layout/Toolbar" instance=ExtResource("5")]
-offset_left = 656.0
-offset_right = 1024.0
-offset_bottom = 31.0
+layout_mode = 2
 
 [node name="FontView" type="HBoxContainer" parent="Layout"]
-offset_top = 35.0
-offset_right = 1024.0
-offset_bottom = 600.0
+layout_mode = 2
 size_flags_vertical = 3
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Layout/FontView"]
-offset_right = 750.0
-offset_bottom = 565.0
+layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="FontList" type="VBoxContainer" parent="Layout/FontView/ScrollContainer"]
-offset_right = 750.0
-offset_bottom = 565.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="FontPanel" type="VBoxContainer" parent="Layout/FontView"]
 visible = false
 custom_minimum_size = Vector2(270, 0)
-offset_left = 708.0
-offset_right = 978.0
-offset_bottom = 172.0
+layout_mode = 2
 
 [node name="Padding0" type="Control" parent="Layout/FontView/FontPanel"]
 custom_minimum_size = Vector2(0, 8)
-offset_right = 280.0
-offset_bottom = 8.0
+layout_mode = 2
 
 [node name="FontName" type="Label" parent="Layout/FontView/FontPanel"]
-offset_top = 12.0
-offset_right = 280.0
-offset_bottom = 26.0
+layout_mode = 2
 
 [node name="Padding1" type="Control" parent="Layout/FontView/FontPanel"]
 custom_minimum_size = Vector2(0, 4)
-offset_top = 30.0
-offset_right = 280.0
-offset_bottom = 34.0
+layout_mode = 2
 
 [node name="FontPreview" type="Label" parent="Layout/FontView/FontPanel"]
-offset_top = 38.0
-offset_right = 280.0
-offset_bottom = 52.0
+layout_mode = 2
 text = "Sample Text"
 autowrap_mode = 3
 
 [node name="Padding2" type="Control" parent="Layout/FontView/FontPanel"]
 custom_minimum_size = Vector2(0, 12)
-offset_top = 56.0
-offset_right = 280.0
-offset_bottom = 68.0
+layout_mode = 2
 
 [node name="FontCode" parent="Layout/FontView/FontPanel" instance=ExtResource("2")]
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_top = 72.0
-offset_right = 280.0
-offset_bottom = 172.0
+layout_mode = 2
 
 [node name="FontInspector" parent="Layout/FontView/FontPanel" instance=ExtResource("6")]
+layout_mode = 2
 
 [node name="EmptyPanel" type="Control" parent="Layout/FontView"]
 custom_minimum_size = Vector2(270, 0)
-offset_left = 754.0
-offset_right = 1024.0
-offset_bottom = 565.0
+layout_mode = 2

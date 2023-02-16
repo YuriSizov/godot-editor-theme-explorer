@@ -7,92 +7,69 @@
 [ext_resource type="PackedScene" uid="uid://bg7phy5jdt0wl" path="res://addons/explore-editor-theme/ui/TypeTool.tscn" id="5"]
 
 [node name="Colors" type="MarginContainer"]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource("3")
 color_icon_background = ExtResource("2_xnu8d")
 
 [node name="Layout" type="VBoxContainer" parent="."]
-offset_right = 1024.0
-offset_bottom = 600.0
+layout_mode = 2
 
 [node name="Toolbar" type="HBoxContainer" parent="Layout"]
-offset_right = 1024.0
-offset_bottom = 31.0
+layout_mode = 2
 
 [node name="Filter" parent="Layout/Toolbar" instance=ExtResource("4")]
-offset_right = 740.0
-offset_bottom = 31.0
+layout_mode = 2
 
 [node name="Type" parent="Layout/Toolbar" instance=ExtResource("5")]
-offset_left = 744.0
-offset_right = 1024.0
-offset_bottom = 31.0
+layout_mode = 2
 
 [node name="ColorView" type="HBoxContainer" parent="Layout"]
-offset_top = 35.0
-offset_right = 1024.0
-offset_bottom = 600.0
+layout_mode = 2
 size_flags_vertical = 3
 
 [node name="ColorList" type="ItemList" parent="Layout/ColorView"]
-offset_right = 750.0
-offset_bottom = 565.0
+layout_mode = 2
 size_flags_horizontal = 3
 max_columns = 0
 same_column_width = true
 icon_mode = 0
-fixed_icon_size = Vector2(48, 48)
+fixed_icon_size = Vector2i(48, 48)
 
 [node name="ColorPanel" type="VBoxContainer" parent="Layout/ColorView"]
 visible = false
 custom_minimum_size = Vector2(270, 0)
-offset_left = 708.0
-offset_right = 978.0
-offset_bottom = 262.0
+layout_mode = 2
 
 [node name="Padding0" type="Control" parent="Layout/ColorView/ColorPanel"]
 custom_minimum_size = Vector2(0, 8)
-offset_right = 280.0
-offset_bottom = 8.0
+layout_mode = 2
 
 [node name="ColorPreview" type="TextureRect" parent="Layout/ColorView/ColorPanel"]
 custom_minimum_size = Vector2(96, 96)
-offset_top = 12.0
-offset_right = 280.0
-offset_bottom = 76.0
+layout_mode = 2
 stretch_mode = 5
 
 [node name="ColorPreviewInfo" type="Label" parent="Layout/ColorView/ColorPanel/ColorPreview"]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 14.0
 
 [node name="Padding1" type="Control" parent="Layout/ColorView/ColorPanel"]
 custom_minimum_size = Vector2(0, 12)
-offset_top = 80.0
-offset_right = 280.0
-offset_bottom = 92.0
+layout_mode = 2
 
 [node name="ColorName" type="Label" parent="Layout/ColorView/ColorPanel"]
-offset_top = 96.0
-offset_right = 280.0
-offset_bottom = 110.0
+layout_mode = 2
 
 [node name="Padding2" type="Control" parent="Layout/ColorView/ColorPanel"]
 custom_minimum_size = Vector2(0, 12)
-offset_top = 114.0
-offset_right = 280.0
-offset_bottom = 126.0
+layout_mode = 2
 
 [node name="ColorCode" parent="Layout/ColorView/ColorPanel" instance=ExtResource("1")]
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_top = 130.0
-offset_right = 280.0
-offset_bottom = 230.0
+layout_mode = 2
 
 [node name="EmptyPanel" type="Control" parent="Layout/ColorView"]
 custom_minimum_size = Vector2(270, 0)
-offset_left = 754.0
-offset_right = 1024.0
-offset_bottom = 565.0
+layout_mode = 2
