@@ -1,10 +1,15 @@
 @tool
 extends MarginContainer
 
+# Private properties
+var _constant_map : Dictionary = {}
+var _default_type_name : String = "Editor"
+
 # Utils
 const _PluginUtils := preload("res://addons/explore-editor-theme/utils/PluginUtils.gd")
 
 # Node references
+@onready var layout_root : BoxContainer = $Layout
 @onready var filter_tool : Control = $Layout/Toolbar/Filter
 @onready var type_tool : Control = $Layout/Toolbar/Type
 @onready var constant_list : ItemList = $Layout/ConstantView/ConstantList
@@ -14,10 +19,6 @@ const _PluginUtils := preload("res://addons/explore-editor-theme/utils/PluginUti
 @onready var constant_title : Label = $Layout/ConstantView/ConstantPanel/ConstantName
 @onready var constant_value : Label = $Layout/ConstantView/ConstantPanel/ConstantValue
 @onready var constant_code : Control = $Layout/ConstantView/ConstantPanel/ConstantCode
-
-# Private properties
-var _constant_map : Dictionary = {}
-var _default_type_name : String = "Editor"
 
 func _ready() -> void:
 	_update_theme()
@@ -33,6 +34,7 @@ func _update_theme() -> void:
 	if (!_PluginUtils.get_plugin_instance(self)):
 		return
 
+	layout_root.add_theme_constant_override("separation", 8 * _PluginUtils.get_editor_scale(self))
 	constant_title.add_theme_font_override("font", get_theme_font("title", "EditorFonts"))
 	constant_value.add_theme_font_override("font", get_theme_font("source", "EditorFonts"))
 	constant_value.add_theme_color_override("font_color", get_theme_color("accent_color", "Editor"))

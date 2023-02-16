@@ -45,5 +45,6 @@ func set_editor_theme(value : Theme) -> void:
 		icon_explorer.add_icon_set(editor_theme.get_icon_list(type), type)
 		color_explorer.add_color_set(editor_theme.get_color_list(type), type)
 		font_explorer.add_font_set(editor_theme.get_font_list(type), type)
+		font_explorer.add_font_size_set(editor_theme.get_font_size_list(type), type)
 		styleboxes_explorer.add_stylebox_set(editor_theme.get_stylebox_list(type), type)
 		constant_explorer.add_constant_set(editor_theme.get_constant_list(type), type)

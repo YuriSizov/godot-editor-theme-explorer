@@ -14,3 +14,10 @@ static func get_plugin_instance(from_node: Node) -> EditorPlugin:
 		current_node = current_node.get_parent()
 
 	return null
+
+static func get_editor_scale(from_node: Node) -> float:
+	var plugin_instance = get_plugin_instance(from_node)
+	if !is_instance_valid(plugin_instance):
+		return 1.0
+	
+	return plugin_instance.get_editor_interface().get_editor_scale()

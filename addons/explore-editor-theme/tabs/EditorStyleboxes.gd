@@ -12,6 +12,7 @@ var _default_type_name : String = "EditorStyles"
 const _PluginUtils := preload("res://addons/explore-editor-theme/utils/PluginUtils.gd")
 
 # Node references
+@onready var layout_root : BoxContainer = $Layout
 @onready var filter_tool : Control = $Layout/Toolbar/Filter
 @onready var type_tool : Control = $Layout/Toolbar/Type
 @onready var stylebox_list : Control = $Layout/StyleboxView/ScrollContainer/StyleboxList
@@ -41,6 +42,7 @@ func _update_theme() -> void:
 	if (!_PluginUtils.get_plugin_instance(self)):
 		return
 
+	layout_root.add_theme_constant_override("separation", 8 * _PluginUtils.get_editor_scale(self))
 	stylebox_preview.add_theme_color_override("font_color", get_theme_color("accent_color", "Editor"))
 	stylebox_title.add_theme_font_override("font", get_theme_font("title", "EditorFonts"))
 

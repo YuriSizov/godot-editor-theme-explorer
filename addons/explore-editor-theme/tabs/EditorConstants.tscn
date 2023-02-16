@@ -19,6 +19,7 @@ layout_mode = 2
 
 [node name="Filter" parent="Layout/Toolbar" instance=ExtResource("3")]
 layout_mode = 2
+label_text = "Filter"
 
 [node name="Type" parent="Layout/Toolbar" instance=ExtResource("4")]
 layout_mode = 2

@@ -3,11 +3,16 @@ extends MarginContainer
 
 signal filesystem_changed()
 
+# Private properties
+var _icon_map : Dictionary = {}
+var _default_type_name : String = "EditorIcons"
+
 # Utils
 const _PluginUtils := preload("res://addons/explore-editor-theme/utils/PluginUtils.gd")
 const _IconSaver := preload("res://addons/explore-editor-theme/ui/IconSaver.gd")
 
 # Node references
+@onready var layout_root : BoxContainer = $Layout
 @onready var filter_tool : Control = $Layout/Toolbar/Filter
 @onready var type_tool : Control = $Layout/Toolbar/Type
 @onready var icon_list : ItemList = $Layout/IconView/IconList
@@ -19,10 +24,6 @@ const _IconSaver := preload("res://addons/explore-editor-theme/ui/IconSaver.gd")
 @onready var icon_title : Label = $Layout/IconView/IconPanel/IconName
 @onready var icon_code : Control = $Layout/IconView/IconPanel/IconCode
 @onready var icon_saver : _IconSaver = $Layout/IconView/IconPanel/IconSaver
-
-# Private properties
-var _icon_map : Dictionary = {}
-var _default_type_name : String = "EditorIcons"
 
 func _ready() -> void:
 	_update_theme()
@@ -39,6 +40,7 @@ func _update_theme() -> void:
 	if (!_PluginUtils.get_plugin_instance(self)):
 		return
 
+	layout_root.add_theme_constant_override("separation", 8 * _PluginUtils.get_editor_scale(self))
 	icon_preview_info.add_theme_color_override("font_color", get_theme_color("contrast_color_2", "Editor"))
 	icon_title.add_theme_font_override("font", get_theme_font("title", "EditorFonts"))
 
