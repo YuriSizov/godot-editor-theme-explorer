@@ -58,7 +58,7 @@ func _update_theme() -> void:
 	if (!_PluginUtils.get_plugin_instance(self)):
 		return
 
-	layout_root.add_theme_constant_override("separation", 8 * _PluginUtils.get_editor_scale(self))
+	layout_root.add_theme_constant_override("separation", 8 * EditorInterface.get_editor_scale())
 	font_preview.add_theme_color_override("font_color", get_theme_color("accent_color", "Editor"))
 	font_preview.add_theme_stylebox_override("normal", get_theme_stylebox("CanvasItemInfoOverlay", "EditorStyles"))
 	style_font_title.add_theme_font_override("font", get_theme_font("title", "EditorFonts"))
