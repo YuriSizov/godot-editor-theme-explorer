@@ -41,7 +41,7 @@ size_flags_vertical = 3
 
 [node name="FontPanel" type="VBoxContainer" parent="Layout/FontStyleView"]
 visible = false
-custom_minimum_size = Vector2(270, 0)
+custom_minimum_size = Vector2(340, 0)
 layout_mode = 2
 
 [node name="Padding0" type="Control" parent="Layout/FontStyleView/FontPanel"]
@@ -50,6 +50,7 @@ layout_mode = 2
 
 [node name="FontName" type="Label" parent="Layout/FontStyleView/FontPanel"]
 layout_mode = 2
+autowrap_mode = 1
 
 [node name="Padding1" type="Control" parent="Layout/FontStyleView/FontPanel"]
 custom_minimum_size = Vector2(0, 4)
@@ -62,7 +63,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="EmptyPanel" type="Control" parent="Layout/FontStyleView"]
-custom_minimum_size = Vector2(270, 0)
+custom_minimum_size = Vector2(340, 0)
 layout_mode = 2
 
 [node name="SizeToolbar" type="HBoxContainer" parent="Layout"]
@@ -85,7 +86,7 @@ size_flags_horizontal = 3
 
 [node name="FontSizePanel" type="VBoxContainer" parent="Layout/FontSizeView"]
 visible = false
-custom_minimum_size = Vector2(270, 0)
+custom_minimum_size = Vector2(340, 0)
 layout_mode = 2
 
 [node name="Padding0" type="Control" parent="Layout/FontSizeView/FontSizePanel"]
@@ -94,6 +95,7 @@ layout_mode = 2
 
 [node name="FontSizeName" type="Label" parent="Layout/FontSizeView/FontSizePanel"]
 layout_mode = 2
+autowrap_mode = 1
 
 [node name="Padding1" type="Control" parent="Layout/FontSizeView/FontSizePanel"]
 custom_minimum_size = Vector2(0, 4)
@@ -110,7 +112,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="EmptyPanel" type="Control" parent="Layout/FontSizeView"]
-custom_minimum_size = Vector2(270, 0)
+custom_minimum_size = Vector2(340, 0)
 layout_mode = 2
 
 [node name="Padding0" type="Control" parent="Layout"]

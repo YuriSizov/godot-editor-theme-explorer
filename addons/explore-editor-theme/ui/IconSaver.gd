@@ -19,8 +19,7 @@ const _PluginUtils := preload("res://addons/explore-editor-theme/utils/PluginUti
 
 func _ready() -> void:
 	visibility_changed.connect(self._clear_status)
-	# FIXME: Replace with pressed when it is renamed and no longer conflicts with a property
-	save_button.button_up.connect(self._on_save_button_pressed)
+	save_button.pressed.connect(self._on_save_button_pressed)
 	save_dialog.file_selected.connect(self._on_file_selected)
 
 # Properties

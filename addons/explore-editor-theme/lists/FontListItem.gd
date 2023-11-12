@@ -1,5 +1,5 @@
 @tool
-extends Panel
+extends PanelContainer
 
 # Utils
 const _PluginUtils := preload("res://addons/explore-editor-theme/utils/PluginUtils.gd")
@@ -22,6 +22,8 @@ var selected : bool = false:
 signal item_selected()
 
 func _ready() -> void:
+	_update_theme()
+	
 	font_title.text = font_name
 	font_sample.text = sample_text
 
@@ -32,6 +34,14 @@ func _gui_input(event : InputEvent) -> void:
 	if (event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_LEFT && !event.is_pressed() && !event.is_echo()):
 		set_selected(true)
 		item_selected.emit()
+
+func _update_theme() -> void:
+	if (!_PluginUtils.get_plugin_instance(self)):
+		return
+	
+	var panel_style := get_theme_stylebox("panel", "Panel").duplicate()
+	panel_style.set_content_margin_all(0)
+	add_theme_stylebox_override("panel", panel_style)
 
 # Properties
 func set_font_name(value : String) -> void:

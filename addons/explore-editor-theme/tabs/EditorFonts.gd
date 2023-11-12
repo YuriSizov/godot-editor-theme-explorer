@@ -36,14 +36,14 @@ const _PluginUtils := preload("res://addons/explore-editor-theme/utils/PluginUti
 @onready var size_font_code : Control = $Layout/FontSizeView/FontSizePanel/FontSizeCode
 
 # Scene references
-var font_item_scene = preload("res://addons/explore-editor-theme/lists/FontListItem.tscn")
+var font_item_scene := preload("res://addons/explore-editor-theme/lists/FontListItem.tscn")
 
 func _ready() -> void:
 	_update_theme()
 
 	_font_map[_default_style_type_name] = []
 	style_type_tool.add_text_item(_default_style_type_name)
-	
+
 	_font_size_map[_default_size_type_name] = []
 	size_type_tool.add_text_item(_default_size_type_name)
 

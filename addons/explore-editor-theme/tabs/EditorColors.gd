@@ -21,6 +21,7 @@ const _PluginUtils := preload("res://addons/explore-editor-theme/utils/PluginUti
 @onready var color_panel : Control = $Layout/ColorView/ColorPanel
 @onready var color_preview : TextureRect = $Layout/ColorView/ColorPanel/ColorPreview
 @onready var color_preview_info : Label = $Layout/ColorView/ColorPanel/ColorPreview/ColorPreviewInfo
+@onready var color_preview_info2 : Label = $Layout/ColorView/ColorPanel/ColorPreview/ColorPreviewInfo2
 @onready var color_title : Label = $Layout/ColorView/ColorPanel/ColorName
 @onready var color_code : Control = $Layout/ColorView/ColorPanel/ColorCode
 
@@ -40,6 +41,7 @@ func _update_theme() -> void:
 
 	layout_root.add_theme_constant_override("separation", 8 * _PluginUtils.get_editor_scale(self))
 	color_preview_info.add_theme_color_override("font_color", get_theme_color("contrast_color_2", "Editor"))
+	color_preview_info2.add_theme_color_override("font_color", get_theme_color("contrast_color_2", "Editor"))
 	color_title.add_theme_font_override("font", get_theme_font("title", "EditorFonts"))
 
 func add_color_set(color_names : PackedStringArray, type_name : String) -> void:
@@ -84,11 +86,11 @@ func _on_color_item_selected(item_index : int) -> void:
 
 	color_preview.texture = color_texture
 	color_preview.self_modulate = color_modulate
-	color_preview_info.text  = "# %s\n" % [ color_modulate.to_html(!is_equal_approx(color_modulate.a, 1.0)) ]
-	color_preview_info.text += "R: %.5f\n" % [ color_modulate.r ]
+	color_preview_info.text  = "R: %.5f\n" % [ color_modulate.r ]
 	color_preview_info.text += "G: %.5f\n" % [ color_modulate.g ]
 	color_preview_info.text += "B: %.5f\n" % [ color_modulate.b ]
 	color_preview_info.text += "A: %.5f"   % [ color_modulate.a ]
+	color_preview_info2.text = "# %s\n" % [ color_modulate.to_html(!is_equal_approx(color_modulate.a, 1.0)) ]
 	color_title.text = color_name
 	color_code.code_text = "get_theme_color(\"" + color_name + "\", \"" + type_name + "\")"
 

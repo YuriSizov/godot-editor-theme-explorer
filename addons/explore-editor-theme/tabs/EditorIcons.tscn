@@ -20,6 +20,7 @@ layout_mode = 2
 
 [node name="Filter" parent="Layout/Toolbar" instance=ExtResource("3")]
 layout_mode = 2
+label_text = "Filter"
 
 [node name="Type" parent="Layout/Toolbar" instance=ExtResource("4")]
 layout_mode = 2
@@ -39,7 +40,7 @@ fixed_icon_size = Vector2i(16, 16)
 
 [node name="IconPanel" type="VBoxContainer" parent="Layout/IconView"]
 visible = false
-custom_minimum_size = Vector2(270, 0)
+custom_minimum_size = Vector2(340, 0)
 layout_mode = 2
 size_flags_vertical = 3
 
@@ -57,6 +58,10 @@ stretch_mode = 5
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 14.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.784314)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 1
 text = "64x64"
 
 [node name="Padding1" type="Control" parent="Layout/IconView/IconPanel"]
@@ -65,6 +70,7 @@ layout_mode = 2
 
 [node name="IconName" type="Label" parent="Layout/IconView/IconPanel"]
 layout_mode = 2
+autowrap_mode = 1
 
 [node name="Padding2" type="Control" parent="Layout/IconView/IconPanel"]
 custom_minimum_size = Vector2(0, 12)
@@ -77,5 +83,5 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="EmptyPanel" type="Control" parent="Layout/IconView"]
-custom_minimum_size = Vector2(270, 0)
+custom_minimum_size = Vector2(340, 0)
 layout_mode = 2

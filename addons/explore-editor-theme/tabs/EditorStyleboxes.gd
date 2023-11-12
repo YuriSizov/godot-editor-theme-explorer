@@ -26,7 +26,7 @@ const _PluginUtils := preload("res://addons/explore-editor-theme/utils/PluginUti
 @onready var stylebox_inspector : Control = $Layout/StyleboxView/StyleboxPanel/StyleboxInspector
 
 # Scene references
-var stylebox_item_scene = preload("res://addons/explore-editor-theme/lists/StyleboxListItem.tscn")
+var stylebox_item_scene := preload("res://addons/explore-editor-theme/lists/StyleboxListItem.tscn")
 
 func _ready() -> void:
 	_update_theme()
@@ -49,12 +49,10 @@ func _update_theme() -> void:
 func _update_preview_background() -> void:
 	if !_PluginUtils.get_plugin_instance(self):
 		return
-	
-	var bg_image = preview_background_texture.get_image()
-	# FIXME: Find out why the method was removed and what's the workaround
-	#bg_image.expand_x2_hq2x()
-	ImageTexture.create_from_image(bg_image)
-	preview_background.texture = preview_background_texture
+
+	var bg_image : Image = preview_background_texture.get_image().duplicate()
+	bg_image.resize(bg_image.get_width() * 2, bg_image.get_height() * 2, Image.INTERPOLATE_NEAREST)
+	preview_background.texture = ImageTexture.create_from_image(bg_image)
 
 func add_stylebox_set(stylebox_names : PackedStringArray, type_name : String) -> void:
 	if (stylebox_names.size() == 0 || type_name.is_empty()):

@@ -1,5 +1,5 @@
 @tool
-extends Panel
+extends PanelContainer
 
 # Public properties
 @export var preview_background_texture : Texture
@@ -22,6 +22,8 @@ const _PluginUtils := preload("res://addons/explore-editor-theme/utils/PluginUti
 signal item_selected()
 
 func _ready() -> void:
+	_update_theme()
+	
 	stylebox_title.text = stylebox_name
 	tooltip_text = stylebox_name
 
@@ -33,6 +35,14 @@ func _gui_input(event : InputEvent) -> void:
 	if (event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_LEFT && !event.is_pressed() && !event.is_echo()):
 		set_selected(true)
 		item_selected.emit()
+
+func _update_theme() -> void:
+	if (!_PluginUtils.get_plugin_instance(self)):
+		return
+	
+	var panel_style := get_theme_stylebox("panel", "Panel").duplicate()
+	panel_style.set_content_margin_all(0)
+	add_theme_stylebox_override("panel", panel_style)
 
 # Properties
 func set_stylebox_name(value : String) -> void:
@@ -73,12 +83,10 @@ func _update_preview() -> void:
 func _update_preview_background() -> void:
 	if !_PluginUtils.get_plugin_instance(self):
 		return
-	
-	var bg_image = preview_background_texture.get_image()
-	# FIXME: Find out why the method was removed and what's the workaround
-	#bg_image.expand_x2_hq2x()
-	ImageTexture.create_from_image(bg_image)
-	preview_background.texture = preview_background_texture
+
+	var bg_image = preview_background_texture.get_image().duplicate()
+	bg_image.resize(bg_image.get_width() * 2, bg_image.get_height() * 2, Image.INTERPOLATE_NEAREST)
+	preview_background.texture = ImageTexture.create_from_image(bg_image)
 
 func _update_background() -> void:
 	if (!_PluginUtils.get_plugin_instance(self)):

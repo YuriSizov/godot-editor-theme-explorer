@@ -15,8 +15,7 @@ var code_text : String = "":
 func _ready() -> void:
 	_update_highlighter()
 
-	# FIXME: Replace with pressed when it is renamed and no longer conflicts with a property
-	copy_code_button.button_up.connect(self._on_copy_button_pressed)
+	copy_code_button.pressed.connect(self._on_copy_button_pressed)
 
 func _update_highlighter() -> void:
 	if !_PluginUtils.get_plugin_instance(self):
@@ -36,6 +35,5 @@ func _on_copy_button_pressed() -> void:
 	if (copied_text.is_empty()):
 		return
 
-	# TODO: Make sure this is the proper new method; docs are empty at the moment
 	DisplayServer.clipboard_set(copied_text)
 	copy_code_button.icon = get_theme_icon("StatusSuccess", "EditorIcons")

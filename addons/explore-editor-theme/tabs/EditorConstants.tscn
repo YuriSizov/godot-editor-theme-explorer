@@ -34,7 +34,7 @@ size_flags_horizontal = 3
 
 [node name="ConstantPanel" type="VBoxContainer" parent="Layout/ConstantView"]
 visible = false
-custom_minimum_size = Vector2(270, 0)
+custom_minimum_size = Vector2(340, 0)
 layout_mode = 2
 
 [node name="Padding0" type="Control" parent="Layout/ConstantView/ConstantPanel"]
@@ -43,6 +43,7 @@ layout_mode = 2
 
 [node name="ConstantName" type="Label" parent="Layout/ConstantView/ConstantPanel"]
 layout_mode = 2
+autowrap_mode = 1
 
 [node name="Padding1" type="Control" parent="Layout/ConstantView/ConstantPanel"]
 custom_minimum_size = Vector2(0, 4)
@@ -59,5 +60,5 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="EmptyPanel" type="Control" parent="Layout/ConstantView"]
-custom_minimum_size = Vector2(270, 0)
+custom_minimum_size = Vector2(340, 0)
 layout_mode = 2

@@ -20,8 +20,7 @@ func _ready() -> void:
 
 		parent = parent.get_parent()
 
-	# FIXME: Replace with pressed when it is renamed and no longer conflicts with a property
-	inspect_button.button_up.connect(self._on_inspect_pressed)
+	inspect_button.pressed.connect(self._on_inspect_pressed)
 
 func _on_inspect_pressed() -> void:
 	if (!inspected_resource):

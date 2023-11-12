@@ -1,15 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://c6r5h6suqvj1p"]
 
 [ext_resource type="Script" path="res://addons/explore-editor-theme/lists/StyleboxListItem.gd" id="1"]
-[ext_resource type="Texture2D" uid="uid://dky5knjdkf38g" path="res://addons/explore-editor-theme/color-preview-icon.tres" id="2_obh8t"]
+[ext_resource type="Texture2D" uid="uid://1o4lmgmicu6s" path="res://addons/explore-editor-theme/color-preview-icon.png" id="2_o5jg8"]
 
-[node name="StyleboxListItem" type="Panel" groups=["ETE_StyleBoxItems"]]
+[node name="StyleboxListItem" type="PanelContainer" groups=["ETE_StyleBoxItems"]]
 custom_minimum_size = Vector2(0, 160)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource("1")
-preview_background_texture = ExtResource("2_obh8t")
+preview_background_texture = ExtResource("2_o5jg8")
 
 [node name="Layout" type="VBoxContainer" parent="."]
 layout_mode = 0
@@ -44,4 +44,5 @@ layout_mode = 2
 size_flags_vertical = 3
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 1
 clip_text = true
