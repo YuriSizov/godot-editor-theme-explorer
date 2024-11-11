@@ -12,9 +12,7 @@ script = ExtResource("1")
 preview_background_texture = ExtResource("2_o5jg8")
 
 [node name="Layout" type="VBoxContainer" parent="."]
-layout_mode = 0
-anchor_right = 1.0
-anchor_bottom = 1.0
+layout_mode = 2
 theme_override_constants/separation = 0
 
 [node name="PreviewContainer" type="MarginContainer" parent="Layout"]

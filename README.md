@@ -1,7 +1,7 @@
 # Godot Editor Theme Explorer
 Editor plugin which allows plugin developers to quickly reference various `Theme` properties defined in the main Editor Theme. This allows creators to make GUI for their plugins as seamless as possible, relying on style definitions made by Godot Engine developers and giving their users a consistent look across the board.
 
-Developed in and tested against Godot 4.2. For the version compatible with Godot 4.0/4.1 see the `4.0` branch.
+Developed in and tested against Godot 4.2/4.3. For the version compatible with Godot 4.0/4.1 see the `4.0` branch.
 
 ## Installation
 Clone this repository or download it as ZIP. You only need to put `addons/explore-editor-theme` folder inside your project folder. ZIP already has only necessary files.

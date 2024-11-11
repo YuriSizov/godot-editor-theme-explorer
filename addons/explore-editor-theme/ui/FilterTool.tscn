@@ -7,6 +7,7 @@ offset_right = 988.0
 offset_bottom = 24.0
 size_flags_horizontal = 3
 script = ExtResource("1")
+label_text = "Filter"
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 2

@@ -100,6 +100,8 @@ func _refresh_stylebox_list() -> void:
 
 	if (horizontal_container.get_child_count() > 0):
 		stylebox_list.add_child(horizontal_container)
+	else:
+		horizontal_container.queue_free()
 
 # Handlers
 func _on_filter_text_changed(value : String) -> void:
