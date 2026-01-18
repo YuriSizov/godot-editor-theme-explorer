@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6mun6p3lk1k6"]
+
+[ext_resource type="Script" path="res://addons/explore-editor-theme/gui/widgets/TextFilter.gd" id="1_ilhhy"]
+
+[node name="TextFilter" type="HBoxContainer"]
+offset_right = 988.0
+offset_bottom = 36.0
+size_flags_horizontal = 3
+script = ExtResource("1_ilhhy")
+filter_label = "Filter"
+
+[node name="Label" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Filter"
+
+[node name="Value" type="LineEdit" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+clear_button_enabled = true

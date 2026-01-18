@@ -1,0 +1,88 @@
+[gd_scene load_steps=7 format=3 uid="uid://do735jxjqq5b4"]
+
+[ext_resource type="PackedScene" uid="uid://c6mun6p3lk1k6" path="res://addons/explore-editor-theme/gui/widgets/TextFilter.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://bg7phy5jdt0wl" path="res://addons/explore-editor-theme/gui/widgets/TypeSelector.tscn" id="2"]
+[ext_resource type="Script" path="res://addons/explore-editor-theme/gui/tabs/ExplorerTabStyleboxes.gd" id="3"]
+[ext_resource type="PackedScene" uid="uid://ds8c70l2dnpy8" path="res://addons/explore-editor-theme/gui/widgets/CodePreview.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://um7eljtiohqb" path="res://addons/explore-editor-theme/gui/lists/StyleboxList.tscn" id="4_v1j46"]
+[ext_resource type="PackedScene" uid="uid://bdtluesl718xb" path="res://addons/explore-editor-theme/gui/widgets/ResourceInspector.tscn" id="6"]
+
+[node name="Styleboxes" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("3")
+
+[node name="Layout" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Toolbar" type="HBoxContainer" parent="Layout"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TextFilter" parent="Layout/Toolbar" instance=ExtResource("1")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="TypeSelector" parent="Layout/Toolbar" instance=ExtResource("2")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Contents" type="HBoxContainer" parent="Layout"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="StyleboxList" parent="Layout/Contents" instance=ExtResource("4_v1j46")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Sidebar" type="MarginContainer" parent="Layout/Contents"]
+custom_minimum_size = Vector2(340, 0)
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 8
+
+[node name="StyleboxDetails" type="VBoxContainer" parent="Layout/Contents/Sidebar"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(340, 0)
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="StyleboxPreview" type="MarginContainer" parent="Layout/Contents/Sidebar/StyleboxDetails"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+
+[node name="PreviewBackground" type="TextureRect" parent="Layout/Contents/Sidebar/StyleboxDetails/StyleboxPreview"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.0392157)
+texture_filter = 1
+texture_repeat = 2
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+stretch_mode = 1
+
+[node name="StyleboxPreviewPanel" type="Panel" parent="Layout/Contents/Sidebar/StyleboxDetails/StyleboxPreview"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="StyleboxName" type="Label" parent="Layout/Contents/Sidebar/StyleboxDetails"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+autowrap_mode = 1
+
+[node name="StyleboxCode" parent="Layout/Contents/Sidebar/StyleboxDetails" instance=ExtResource("4")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="StyleboxInspector" parent="Layout/Contents/Sidebar/StyleboxDetails" instance=ExtResource("6")]
+unique_name_in_owner = true
+layout_mode = 2

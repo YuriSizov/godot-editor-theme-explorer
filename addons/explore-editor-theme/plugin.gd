@@ -1,28 +1,43 @@
 @tool
 extends EditorPlugin
 
-var plugin_name : String = "Editor Theme Explorer"
-var dialog_instance : Window
+const ExplorerWindow := preload("./gui/ExplorerWindow.gd")
+const TOOL_MENU_NAME := "Open Editor Theme Explorer..."
 
-func get_plugin_name() -> String:
-	return plugin_name
+var _explorer_window: ExplorerWindow = null
+
 
 func _enter_tree():
-	dialog_instance = preload("res://addons/explore-editor-theme/ExplorerDialog.tscn").instantiate()
-	dialog_instance.editor_plugin = self
-	EditorInterface.get_base_control().add_child(dialog_instance)
+	add_tool_menu_item(TOOL_MENU_NAME, _show_explorer_window)
 
-	dialog_instance.editor_theme = EditorInterface.get_editor_theme()
-	dialog_instance.filesystem_changed.connect(self._rescan_filesystem)
+	if not is_instance_valid(_explorer_window):
+		_explorer_window = ExplorerWindow.new()
+		_explorer_window.close_requested.connect(_hide_explorer_window)
 
-	add_tool_menu_item(get_plugin_name(), self._show_window)
+	add_child(_explorer_window)
+
 
 func _exit_tree():
-	remove_tool_menu_item(get_plugin_name())
-	dialog_instance.queue_free()
+	remove_tool_menu_item(TOOL_MENU_NAME)
 
-func _show_window() -> void:
-	dialog_instance.popup_centered()
+	if not is_instance_valid(_explorer_window):
+		return
 
-func _rescan_filesystem() -> void:
-	EditorInterface.get_resource_filesystem().scan()
+	_explorer_window.close_requested.disconnect(_hide_explorer_window)
+	remove_child(_explorer_window)
+	_explorer_window.queue_free()
+	_explorer_window = null
+
+
+func _show_explorer_window() -> void:
+	if not is_instance_valid(_explorer_window):
+		return
+
+	_explorer_window.popup_centered()
+
+
+func _hide_explorer_window() -> void:
+	if not is_instance_valid(_explorer_window):
+		return
+
+	_explorer_window.hide()

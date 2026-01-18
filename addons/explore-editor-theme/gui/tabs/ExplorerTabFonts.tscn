@@ -1,0 +1,133 @@
+[gd_scene load_steps=8 format=3 uid="uid://6un3gpulvo7e"]
+
+[ext_resource type="Script" path="res://addons/explore-editor-theme/gui/tabs/ExplorerTabFonts.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://ds8c70l2dnpy8" path="res://addons/explore-editor-theme/gui/widgets/CodePreview.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://c6mun6p3lk1k6" path="res://addons/explore-editor-theme/gui/widgets/TextFilter.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://bg7phy5jdt0wl" path="res://addons/explore-editor-theme/gui/widgets/TypeSelector.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://bikhdp77cjnkn" path="res://addons/explore-editor-theme/gui/lists/FontList.tscn" id="4_dq6ql"]
+[ext_resource type="PackedScene" uid="uid://cykapqu53xah8" path="res://addons/explore-editor-theme/gui/widgets/TextSamplePreview.tscn" id="5"]
+[ext_resource type="PackedScene" uid="uid://bdtluesl718xb" path="res://addons/explore-editor-theme/gui/widgets/ResourceInspector.tscn" id="6"]
+
+[node name="Fonts" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1")
+
+[node name="Layout" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="StyleToolbar" type="HBoxContainer" parent="Layout"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="StyleTextFilter" parent="Layout/StyleToolbar" instance=ExtResource("3")]
+unique_name_in_owner = true
+layout_mode = 2
+filter_label = "Filter styles"
+
+[node name="StyleTypeSelector" parent="Layout/StyleToolbar" instance=ExtResource("4")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="StyleContents" type="HBoxContainer" parent="Layout"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 4.0
+
+[node name="FontList" parent="Layout/StyleContents" instance=ExtResource("4_dq6ql")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Sidebar" type="MarginContainer" parent="Layout/StyleContents"]
+custom_minimum_size = Vector2(340, 0)
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 8
+
+[node name="FontStyleDetails" type="VBoxContainer" parent="Layout/StyleContents/Sidebar"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(340, 0)
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="FontName" type="Label" parent="Layout/StyleContents/Sidebar/FontStyleDetails"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+autowrap_mode = 1
+
+[node name="FontCode" parent="Layout/StyleContents/Sidebar/FontStyleDetails" instance=ExtResource("2")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="FontInspector" parent="Layout/StyleContents/Sidebar/FontStyleDetails" instance=ExtResource("6")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="Layout"]
+layout_mode = 2
+
+[node name="SizeToolbar" type="HBoxContainer" parent="Layout"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="SizeTextFilter" parent="Layout/SizeToolbar" instance=ExtResource("3")]
+unique_name_in_owner = true
+layout_mode = 2
+filter_label = "Filter sizes"
+
+[node name="SizeTypeSelector" parent="Layout/SizeToolbar" instance=ExtResource("4")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="SizeContents" type="HBoxContainer" parent="Layout"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="FontSizeList" type="ItemList" parent="Layout/SizeContents"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Sidebar" type="MarginContainer" parent="Layout/SizeContents"]
+custom_minimum_size = Vector2(340, 0)
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 8
+
+[node name="FontSizeDetails" type="VBoxContainer" parent="Layout/SizeContents/Sidebar"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(340, 0)
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="FontSizeName" type="Label" parent="Layout/SizeContents/Sidebar/FontSizeDetails"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+autowrap_mode = 1
+
+[node name="FontSizeValue" type="Label" parent="Layout/SizeContents/Sidebar/FontSizeDetails"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="FontSizeCode" parent="Layout/SizeContents/Sidebar/FontSizeDetails" instance=ExtResource("2")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HSeparator2" type="HSeparator" parent="Layout"]
+layout_mode = 2
+
+[node name="SamplePreview" parent="Layout" instance=ExtResource("5")]
+unique_name_in_owner = true
+layout_mode = 2

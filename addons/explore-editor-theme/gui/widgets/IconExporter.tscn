@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwsc0c4b3wt28"]
+
+[ext_resource type="Script" path="res://addons/explore-editor-theme/gui/widgets/IconExporter.gd" id="1_fnavb"]
+
+[node name="IconExporter" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+script = ExtResource("1_fnavb")
+
+[node name="ExportButton" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Export Icon"
+
+[node name="Message" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="ExportDialog" type="FileDialog" parent="."]
+unique_name_in_owner = true
+title = "Export Icon to File"
+size = Vector2i(650, 450)
+min_size = Vector2i(240, 120)
+filters = PackedStringArray("*.png ; PNG Image")

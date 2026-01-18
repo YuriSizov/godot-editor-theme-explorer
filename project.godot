@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Plugin: Editor Theme Explorer"
-run/main_scene="res://addons/explore-editor-theme/ExplorerDialog.tscn"
 config/features=PackedStringArray("4.3")
 config/icon="res://addons/explore-editor-theme/plugin-icon.png"
+
+[editor]
+
+naming/scene_name_casing=1
+naming/script_name_casing=1
 
 [editor_plugins]
 
@@ -22,3 +26,5 @@ enabled=PackedStringArray("res://addons/explore-editor-theme/plugin.cfg")
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

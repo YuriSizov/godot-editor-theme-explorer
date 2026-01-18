@@ -1,0 +1,98 @@
+[gd_scene load_steps=5 format=3 uid="uid://dti6srt6g56ce"]
+
+[ext_resource type="PackedScene" uid="uid://ds8c70l2dnpy8" path="res://addons/explore-editor-theme/gui/widgets/CodePreview.tscn" id="1"]
+[ext_resource type="Script" path="res://addons/explore-editor-theme/gui/tabs/ExplorerTabColors.gd" id="3"]
+[ext_resource type="PackedScene" uid="uid://c6mun6p3lk1k6" path="res://addons/explore-editor-theme/gui/widgets/TextFilter.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://bg7phy5jdt0wl" path="res://addons/explore-editor-theme/gui/widgets/TypeSelector.tscn" id="5"]
+
+[node name="ExplorerTabColors" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("3")
+
+[node name="Layout" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Toolbar" type="HBoxContainer" parent="Layout"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TextFilter" parent="Layout/Toolbar" instance=ExtResource("4")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="TypeSelector" parent="Layout/Toolbar" instance=ExtResource("5")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Contents" type="HBoxContainer" parent="Layout"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ColorList" type="ItemList" parent="Layout/Contents"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+max_columns = 0
+same_column_width = true
+icon_mode = 0
+fixed_icon_size = Vector2i(48, 48)
+
+[node name="Sidebar" type="MarginContainer" parent="Layout/Contents"]
+custom_minimum_size = Vector2(340, 0)
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 8
+
+[node name="ColorDetails" type="VBoxContainer" parent="Layout/Contents/Sidebar"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(340, 0)
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="ColorPreview" type="TextureRect" parent="Layout/Contents/Sidebar/ColorDetails"]
+unique_name_in_owner = true
+texture_filter = 1
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+stretch_mode = 5
+
+[node name="ColorPreviewInfo1" type="Label" parent="Layout/Contents/Sidebar/ColorDetails/ColorPreview"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 14.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.784314)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 1
+
+[node name="ColorPreviewInfo2" type="Label" parent="Layout/Contents/Sidebar/ColorDetails/ColorPreview"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.784314)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 1
+
+[node name="ColorName" type="Label" parent="Layout/Contents/Sidebar/ColorDetails"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+autowrap_mode = 1
+
+[node name="ColorCode" parent="Layout/Contents/Sidebar/ColorDetails" instance=ExtResource("1")]
+unique_name_in_owner = true
+layout_mode = 2

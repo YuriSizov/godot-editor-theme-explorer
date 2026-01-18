@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://cykapqu53xah8"]
+
+[ext_resource type="Script" path="res://addons/explore-editor-theme/gui/widgets/TextSamplePreview.gd" id="1_vim2e"]
+
+[node name="TextSamplePreview" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+script = ExtResource("1_vim2e")
+
+[node name="Toolbar" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Toolbar"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Preview selected"
+
+[node name="Value" type="LineEdit" parent="Toolbar"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Sample Text"
+clear_button_enabled = true
+
+[node name="Preview" type="Label" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+text = "Sample Text"
+vertical_alignment = 1
+autowrap_mode = 3

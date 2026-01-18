@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdtluesl718xb"]
+
+[ext_resource type="Script" path="res://addons/explore-editor-theme/gui/widgets/ResourceInspector.gd" id="1_a24p2"]
+
+[node name="ResourceInspector" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_a24p2")
+
+[node name="InspectButton" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Inspect"

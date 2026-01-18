@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://bg7phy5jdt0wl"]
+
+[ext_resource type="Script" path="res://addons/explore-editor-theme/gui/widgets/TypeSelector.gd" id="1_wjlg3"]
+
+[node name="TypeSelector" type="HBoxContainer"]
+custom_minimum_size = Vector2(280, 0)
+offset_right = 280.0
+offset_bottom = 33.0
+script = ExtResource("1_wjlg3")
+
+[node name="Label" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Type"
+
+[node name="Value" type="OptionButton" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
