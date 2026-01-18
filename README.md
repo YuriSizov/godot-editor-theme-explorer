@@ -1,50 +1,91 @@
-# Godot Editor Theme Explorer
-Editor plugin which allows plugin developers to quickly reference various `Theme` properties defined in the main Editor Theme. This allows creators to make GUI for their plugins as seamless as possible, relying on style definitions made by Godot Engine developers and giving their users a consistent look across the board.
+# Editor Theme Explorer for Godot
 
-Developed in and tested against Godot 4.2/4.3. For the version compatible with Godot 4.0/4.1 see the `4.0` branch.
+**Editor Theme Explorer** is an editor utility which allows plugin developers to quickly
+reference various definitions and properties defined in the current editor GUI theme. Take
+advantage of that and create plugins with consistent UI which respects user preferences!
+
+Thanks to the Godot theming systems, all GUI nodes inside of the editor node tree can use
+the editor theme directly without any hassle. Built-in Control and Window nodes added by
+plugins implicitly inherit visuals from the current editor. But the editor `Theme` resource
+also provides a bunch of specialized definitions for various widgets in the editor, as well
+as all icons used throughout the GUI. You just need to know how reference them.
+
+And this is where _Editor Theme Explorer_ comes in! Through an intuitive UI with filtering
+capabilities and clear previews plugin developers can learn about various definitions used
+in making of the Godot editor and find keys and names needed to get them.
+
+<p align="center">
+	<img src="images/preview-1.png" alt="Explorer open on the default tab, Icons." width=640>
+</p>
+
+
+This version supports Godot 4.2 and later (sans script UIDs). For the version compatible with Godot 4.0/4.1 see the `4.0` branch.
+
 
 ## Installation
+
 Clone this repository or download it as ZIP. You only need to put `addons/explore-editor-theme` folder inside your project folder. ZIP already has only necessary files.
 
-Also available from AssetLib within the Editor: https://godotengine.org/asset-library/asset/2353.
+You can also install via the AssetLib tab in the editor: https://godotengine.org/asset-library/asset/2353.
+
 
 ## Features
-This plugin consists of a single window, available from **Project > Tools** menu.
 
-There are 5 sections, giving access to *Icons*, *Colors*, *Fonts*, *StyleBoxes*, and *Constants*. All of them feature a list of entries, which can be filtered by name and by type. List entries display their name and, if possible, a small preview of their visual aspect. Selected entries can be previewed further, with additional information and a code snippet to use them.
+You can open the explorer window via the **Project > Tools > Editor Theme Explorer** menu. Through this window you can:
 
-![Initial look](images/preview-1.png)
+- List all colors, constants, fonts, font sizes, icons, and styles defined in the current editor theme.
+- Search through each category and filter them by theme type.
+- Get code necessary to fetch desired item.
+- and, do some other things with specific items!
 
-### Icons
-![Icons tab](images/preview-2.png)
 
-Icons are listed with their name and a 16x16 preview image. Most of the icons are only usable at that scale. In the right-hand panel a bigger preview image is displayed, at 64x64.
+<p align="center">
+	<a href="images/preview-2.png"><img width="18%" src="images/preview-2.png" alt="Explorer open on the Icons tab with filtering."></a>
+	<a href="images/preview-3.png"><img width="18%" src="images/preview-3.png" alt="Explorer open on the Colors tab with Button colors listed."></a>
+	<a href="images/preview-4.png"><img width="18%" src="images/preview-4.png" alt="Explorer open on the Fonts tab with a line of text being previewed."></a>
+	<a href="images/preview-5.png"><img width="18%" src="images/preview-5.png" alt="Explorer open on the Styleboxes tab with EditorStyles styleboxes listed."></a>
+	<a href="images/preview-6.png"><img width="18%" src="images/preview-6.png" alt="Explorer open on the Constants tab with Tree constants listed."></a>
+</p>
 
-Icons can be saved as a PNG file, however only at their current scale. Editor icons are generated at runtime from SVG sources depending on the editor scale setting. Consider locating the icon you need in [Godot's sources](https://github.com/godotengine/godot/tree/master/editor/icons).
 
 ### Colors
-![Icons tab](images/preview-3.png)
 
-Colors are displayed using a checkered black-and-white texture, to give a better representation for semi-transparent colors. The right-hand panel features RGBA aspects of each color.
-
-### Fonts
-![Icons tab](images/preview-4.png)
-
-Fonts are demonstrated using a sample text, that can be customized by a user.
-
-Fonts can also be explored in the Inspector as a normal resource.
-
-### StyleBoxes
-![Icons tab](images/preview-5.png)
-
-StyleBoxes are previewed by being applied to a small `Panel`. A lot of them do not carry any visual style, or can have a style that matches background, so a checkered background is used once again to give a better idea of what each StyleBox does.
-
-StyleBoxes can also be explored in the Inspector as a normal resource.
+Colors are listed with a checkerboard preview, which aims to make semi-transparent colors
+more readable and easy to understand. When selected, color aspect values and hex code are
+displayed in the sidebar on the right.
 
 ### Constants
-![Icons tab](images/preview-6.png)
 
-Constants are only displayed by their name in the list. Values can be viewed in the right-hand panel. It should be noted, that constants are always returned as `int`s, though sometimes they are used as `bool`s. Preview demonstrates both interpretations of the value.
+Constants are listed only by their name. When selected, their numeric and boolean
+representation is displayed in the sidebar on the right. Both representations may be relevant,
+as Godot themes often use constants for boolean flags, even though integers are the only
+supported constant type.
+
+### Fonts
+
+Fonts are previewed with a sample text, which can be edited to see how a particular font fits
+your specific case. Font sizes are listed on the same tab, but separately, allowing you to
+mix and match them with any font.
+
+Fonts can also be inspected as a resource via the main editor Inspector.
+
+### Icons
+
+Icons are listed as 16x16 preview image, which is the most commonly used internal scale for
+Godot icons. When selected, a larger preview is displayed in the sidebar on the right.
+
+Icons can be saved as PNG files, but only at their current scale. Though [Godot icons](https://github.com/godotengine/godot/tree/master/editor/icons)
+are created as SVG files, they are rasterized according to the current editor scale setting
+at runtime. If you need original SVG files, you can use the name to find it in Godot sources.
+
+### Styles
+
+Styles (styleboxes) are listed as a styled panel drawn over a checkerboard background. This allows semi-transparent and fully transparent (empty) styles to be more easily distinguishable,
+especially against the panel in the background of the explorer window itself.
+
+Styleboxes can also be inspected as a resource via the main editor Inspector.
+
 
 ## License
-This project is provided under [MIT License](LICENSE).
+
+This project is provided under an [MIT license](LICENSE).
