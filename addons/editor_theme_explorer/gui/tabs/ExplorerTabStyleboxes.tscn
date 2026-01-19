@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://do735jxjqq5b4"]
 
-[ext_resource type="PackedScene" uid="uid://c6mun6p3lk1k6" path="res://addons/explore-editor-theme/gui/widgets/TextFilter.tscn" id="1"]
-[ext_resource type="PackedScene" uid="uid://bg7phy5jdt0wl" path="res://addons/explore-editor-theme/gui/widgets/TypeSelector.tscn" id="2"]
-[ext_resource type="Script" path="res://addons/explore-editor-theme/gui/tabs/ExplorerTabStyleboxes.gd" id="3"]
-[ext_resource type="PackedScene" uid="uid://ds8c70l2dnpy8" path="res://addons/explore-editor-theme/gui/widgets/CodePreview.tscn" id="4"]
-[ext_resource type="PackedScene" uid="uid://um7eljtiohqb" path="res://addons/explore-editor-theme/gui/lists/StyleboxList.tscn" id="4_v1j46"]
-[ext_resource type="PackedScene" uid="uid://bdtluesl718xb" path="res://addons/explore-editor-theme/gui/widgets/ResourceInspector.tscn" id="6"]
+[ext_resource type="PackedScene" uid="uid://c6mun6p3lk1k6" path="res://addons/editor_theme_explorer/gui/widgets/TextFilter.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://bg7phy5jdt0wl" path="res://addons/editor_theme_explorer/gui/widgets/TypeSelector.tscn" id="2"]
+[ext_resource type="Script" path="res://addons/editor_theme_explorer/gui/tabs/ExplorerTabStyleboxes.gd" id="3"]
+[ext_resource type="PackedScene" uid="uid://ds8c70l2dnpy8" path="res://addons/editor_theme_explorer/gui/widgets/CodePreview.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://um7eljtiohqb" path="res://addons/editor_theme_explorer/gui/lists/StyleboxList.tscn" id="4_v1j46"]
+[ext_resource type="PackedScene" uid="uid://bdtluesl718xb" path="res://addons/editor_theme_explorer/gui/widgets/ResourceInspector.tscn" id="6"]
 
 [node name="Styleboxes" type="MarginContainer"]
 anchors_preset = 15

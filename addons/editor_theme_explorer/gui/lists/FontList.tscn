@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bikhdp77cjnkn"]
 
-[ext_resource type="Script" path="res://addons/explore-editor-theme/gui/lists/FontList.gd" id="1_mxdmp"]
+[ext_resource type="Script" path="res://addons/editor_theme_explorer/gui/lists/FontList.gd" id="1_mxdmp"]
 
 [node name="FontList" type="ScrollContainer"]
 anchors_preset = 15

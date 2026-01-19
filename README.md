@@ -19,12 +19,14 @@ in making of the Godot editor and find keys and names needed to get them.
 </p>
 
 
-This version supports Godot 4.2 and later (sans script UIDs). For the version compatible with Godot 4.0/4.1 see the `4.0` branch.
+This version supports Godot 4.2 and later (sans script UIDs). For the version compatible with
+Godot 4.0/4.1 see the `4.0` branch.
 
 
 ## Installation
 
-Clone this repository or download it as ZIP. You only need to put `addons/explore-editor-theme` folder inside your project folder. ZIP already has only necessary files.
+Clone this repository or download it as ZIP. You only need to put `addons/editor_theme_explorer`
+folder inside your project folder. ZIP already has only necessary files.
 
 You can also install via the AssetLib tab in the editor: https://godotengine.org/asset-library/asset/2353.
 
@@ -80,7 +82,8 @@ at runtime. If you need original SVG files, you can use the name to find it in G
 
 ### Styles
 
-Styles (styleboxes) are listed as a styled panel drawn over a checkerboard background. This allows semi-transparent and fully transparent (empty) styles to be more easily distinguishable,
+Styles (styleboxes) are listed as a styled panel drawn over a checkerboard background. This
+allows semi-transparent and fully transparent (empty) styles to be more easily distinguishable,
 especially against the panel in the background of the explorer window itself.
 
 Styleboxes can also be inspected as a resource via the main editor Inspector.

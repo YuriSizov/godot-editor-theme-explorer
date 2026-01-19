@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dwsc0c4b3wt28"]
 
-[ext_resource type="Script" path="res://addons/explore-editor-theme/gui/widgets/IconExporter.gd" id="1_fnavb"]
+[ext_resource type="Script" path="res://addons/editor_theme_explorer/gui/widgets/IconExporter.gd" id="1_fnavb"]
 
 [node name="IconExporter" type="VBoxContainer"]
 anchors_preset = 15

@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Plugin: Editor Theme Explorer"
 config/features=PackedStringArray("4.3")
-config/icon="res://addons/explore-editor-theme/plugin-icon.png"
+config/icon="res://addons/editor_theme_explorer/plugin-icon.png"
 
 [editor]
 
@@ -21,7 +21,7 @@ naming/script_name_casing=1
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/explore-editor-theme/plugin.cfg")
+enabled=PackedStringArray("res://addons/editor_theme_explorer/plugin.cfg")
 
 [rendering]
 

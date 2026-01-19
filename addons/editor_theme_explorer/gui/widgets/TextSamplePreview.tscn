@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cykapqu53xah8"]
 
-[ext_resource type="Script" path="res://addons/explore-editor-theme/gui/widgets/TextSamplePreview.gd" id="1_vim2e"]
+[ext_resource type="Script" path="res://addons/editor_theme_explorer/gui/widgets/TextSamplePreview.gd" id="1_vim2e"]
 
 [node name="TextSamplePreview" type="VBoxContainer"]
 anchors_preset = 15

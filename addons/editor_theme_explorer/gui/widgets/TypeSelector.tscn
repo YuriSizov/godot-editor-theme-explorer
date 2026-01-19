@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bg7phy5jdt0wl"]
 
-[ext_resource type="Script" path="res://addons/explore-editor-theme/gui/widgets/TypeSelector.gd" id="1_wjlg3"]
+[ext_resource type="Script" path="res://addons/editor_theme_explorer/gui/widgets/TypeSelector.gd" id="1_wjlg3"]
 
 [node name="TypeSelector" type="HBoxContainer"]
 custom_minimum_size = Vector2(280, 0)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c6mun6p3lk1k6"]
 
-[ext_resource type="Script" path="res://addons/explore-editor-theme/gui/widgets/TextFilter.gd" id="1_ilhhy"]
+[ext_resource type="Script" path="res://addons/editor_theme_explorer/gui/widgets/TextFilter.gd" id="1_ilhhy"]
 
 [node name="TextFilter" type="HBoxContainer"]
 offset_right = 988.0

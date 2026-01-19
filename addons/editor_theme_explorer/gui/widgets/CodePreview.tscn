@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ds8c70l2dnpy8"]
 
-[ext_resource type="Script" path="res://addons/explore-editor-theme/gui/widgets/CodePreview.gd" id="1"]
+[ext_resource type="Script" path="res://addons/editor_theme_explorer/gui/widgets/CodePreview.gd" id="1"]
 
 [sub_resource type="EditorSyntaxHighlighter" id="EditorSyntaxHighlighter_evtj4"]
 

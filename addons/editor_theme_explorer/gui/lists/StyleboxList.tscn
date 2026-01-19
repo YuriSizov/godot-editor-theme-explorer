@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://um7eljtiohqb"]
 
-[ext_resource type="Script" path="res://addons/explore-editor-theme/gui/lists/StyleboxList.gd" id="1_qh4ti"]
+[ext_resource type="Script" path="res://addons/editor_theme_explorer/gui/lists/StyleboxList.gd" id="1_qh4ti"]
 
 [node name="StyleboxList" type="ScrollContainer"]
 anchors_preset = 15
