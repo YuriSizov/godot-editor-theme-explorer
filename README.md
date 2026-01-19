@@ -15,7 +15,7 @@ capabilities and clear previews plugin developers can learn about various defini
 in making of the Godot editor and find keys and names needed to get them.
 
 <p align="center">
-	<img src="images/preview-1.png" alt="Explorer open on the default tab, Icons." width=640>
+	<img src="screenshots/screenshot_1.png" alt="Explorer open on the Icons tab." width=640>
 </p>
 
 
@@ -40,11 +40,11 @@ You can open the explorer window via the **Project > Tools > Editor Theme Explor
 
 
 <p align="center">
-	<a href="images/preview-2.png"><img width="18%" src="images/preview-2.png" alt="Explorer open on the Icons tab with filtering."></a>
-	<a href="images/preview-3.png"><img width="18%" src="images/preview-3.png" alt="Explorer open on the Colors tab with Button colors listed."></a>
-	<a href="images/preview-4.png"><img width="18%" src="images/preview-4.png" alt="Explorer open on the Fonts tab with a line of text being previewed."></a>
-	<a href="images/preview-5.png"><img width="18%" src="images/preview-5.png" alt="Explorer open on the Styleboxes tab with EditorStyles styleboxes listed."></a>
-	<a href="images/preview-6.png"><img width="18%" src="images/preview-6.png" alt="Explorer open on the Constants tab with Tree constants listed."></a>
+	<img width="18%" src="screenshots/screenshot_2.png" alt="Explorer open on the Icons tab with filtering.">
+	<img width="18%" src="screenshots/screenshot_3.png" alt="Explorer open on the Colors tab with Button colors listed.">
+	<img width="18%" src="screenshots/screenshot_4.png" alt="Explorer open on the Fonts tab with a line of text being previewed.">
+	<img width="18%" src="screenshots/screenshot_5.png" alt="Explorer open on the Styleboxes tab with EditorStyles styleboxes listed.">
+	<img width="18%" src="screenshots/screenshot_6.png" alt="Explorer open on the Constants tab with Tree constants listed.">
 </p>
 
 
