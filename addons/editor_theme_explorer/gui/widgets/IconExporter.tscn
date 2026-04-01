@@ -20,6 +20,7 @@ text = "Export Icon"
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
+autowrap_mode = 2
 
 [node name="ExportDialog" type="FileDialog" parent="."]
 unique_name_in_owner = true

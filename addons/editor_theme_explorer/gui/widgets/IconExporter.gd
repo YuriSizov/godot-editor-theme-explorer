@@ -87,22 +87,80 @@ func _clear_status() -> void:
 # Export management.
 
 func _export_icon() -> void:
+	if not has_theme_icon(icon_name, type_name):
+		_show_status(false, "Failed to export icon '%s' from '%s' because it doesn't exist." % [ icon_name, type_name ])
+		return
+
+	var filters := PackedStringArray()
+	var default_extension := "png"
+	_export_dialog.clear_filters()
+	_export_dialog.option_count = 0
+
+	var source_icon := get_theme_icon(icon_name, type_name)
+	if ClassDB.is_parent_class(source_icon.get_class(), "DPITexture"):
+		default_extension = "svg"
+		filters.append("*.svg ; SVG File")
+		_export_dialog.add_option("Scale (PNG only)", [ "1x", "2x", "3x", "4x" ], 0)
+
+	filters.append("*.png ; PNG Image") # Always available.
+	_export_dialog.filters = filters
+
 	if not icon_name.is_empty():
-		_export_dialog.current_file = "%s.png" % [ icon_name ]
+		_export_dialog.current_file = "%s.%s" % [ icon_name, default_extension ]
 
 	_export_dialog.popup_centered()
 
 
 func _export_icon_confirmed(file_path: String) -> void:
-	if not has_theme_icon(icon_name, type_name):
-		_show_status(false, "Failed to export icon '%s' from '%s' because it doesn't exist." % [ icon_name, type_name ])
-		return
+	var source_icon := get_theme_icon(icon_name, type_name)
+	var target_extension := file_path.get_extension()
 
-	var unique_icon := get_theme_icon(icon_name, type_name).duplicate(true)
-	var error := ResourceSaver.save(unique_icon, file_path)
-	if error != OK:
-		_show_status(false, "Failed to export icon '%s' from '%s' (code %d)." % [ icon_name, type_name, error ])
-		return
+	# DPITextures are handled differently from rasterized textures due to incompatibilities.
+	# They also support exporting as SVG natively.
+
+	if ClassDB.is_parent_class(source_icon.get_class(), "DPITexture"):
+		match target_extension:
+			"svg":
+				var fs := FileAccess.open(file_path, FileAccess.WRITE)
+				var error := FileAccess.get_open_error()
+				if error != OK:
+					_show_status(false, "Failed to open file at '%s' for writing (code %d)." % [ file_path, error ])
+					return
+
+				fs.store_string(source_icon.get_source())
+				error = fs.get_error()
+				if error != OK:
+					_show_status(false, "Failed to export icon '%s' from '%s' to '%s' (code %d)." % [ icon_name, type_name, file_path, error ])
+					return
+
+			"png":
+				var export_options := _export_dialog.get_selected_options()
+				var target_scale := int(export_options["Scale (PNG only)"]) + 1
+				var target_image := Image.new()
+				target_image.load_svg_from_string(source_icon.get_source(), target_scale)
+
+				var target_icon := ImageTexture.create_from_image(target_image)
+				var error := ResourceSaver.save(target_icon, file_path)
+				if error != OK:
+					_show_status(false, "Failed to export icon '%s' from '%s' to '%s' (code %d)." % [ icon_name, type_name, file_path, error ])
+					return
+
+			_:
+				_show_status(false, "Failed to export icon '%s' from '%s', unknown extension '%s'." % [ icon_name, type_name, target_extension ])
+				return
+
+	else:
+		match target_extension:
+			"png":
+				var target_icon := source_icon.duplicate(true) # Avoid taking over a path.
+				var error := ResourceSaver.save(target_icon, file_path)
+				if error != OK:
+					_show_status(false, "Failed to export icon '%s' from '%s' to '%s' (code %d)." % [ icon_name, type_name, file_path, error ])
+					return
+
+			_:
+				_show_status(false, "Failed to export icon '%s' from '%s', unknown extension '%s'." % [ icon_name, type_name, target_extension ])
+				return
 
 	_show_status(true)
-	EditorInterface.get_resource_filesystem().scan()
+	EditorInterface.get_resource_filesystem().scan.call_deferred()
