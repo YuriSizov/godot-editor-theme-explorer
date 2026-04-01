@@ -76,9 +76,10 @@ Fonts can also be inspected as a resource via the main editor Inspector.
 Icons are listed as 16x16 preview image, which is the most commonly used internal scale for
 Godot icons. When selected, a larger preview is displayed in the sidebar on the right.
 
-Icons can be saved as PNG files, but only at their current scale. Though [Godot icons](https://github.com/godotengine/godot/tree/master/editor/icons)
-are created as SVG files, they are rasterized according to the current editor scale setting
-at runtime. If you need original SVG files, you can use the name to find it in Godot sources.
+Icons can be saved as either PNG, or SVG files, starting with Godot 4.5 and the introduction
+of `DPITexture`. The scale can also be controlled with PNG exports, starting with that version.
+In older versions of Godot only PNG exports are possible. If you need original SVG files, you
+can use the icon's name to find it in [Godot sources](https://github.com/godotengine/godot/tree/master/editor/icons).
 
 ### Styles
 
